@@ -4,6 +4,7 @@ import path from "path";
 
 export default defineConfig({
   root: path.resolve(__dirname, "client"),
+  base: "./",
   plugins: [react()],
   resolve: {
     alias: {
@@ -12,7 +13,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: path.resolve(__dirname, "dist/public"),
+    outDir: path.resolve(__dirname, "dist"),
     emptyOutDir: true,
   },
 });
