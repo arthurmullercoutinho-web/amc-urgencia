@@ -10,7 +10,7 @@ export default function About() {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-amber-500 to-amber-500/50 rounded-lg blur-xl opacity-20"></div>
               <img
-                src="/manus-storage/arthur-mueller-coutinho_e2be3876.jpg"
+                src="/arthur.jpg"
                 alt="Arthur Müller Coutinho - Advogado"
                 className="relative w-full max-w-sm rounded-lg shadow-2xl object-cover"
               />
