@@ -26,11 +26,16 @@ export default function Home() {
   };
 
   const handleWhatsAppClick = () => {
-    window.open(
-      "https://wa.me/556598172713?text=Olá! Gostaria de uma análise do meu caso.",
-      "_blank"
-    );
-  };
+  window.gtag?.("event", "whatsapp_click", {
+    event_category: "engagement",
+    event_label: "hero",
+  });
+
+  window.open(
+    "https://wa.me/556598172713?text=Olá, Dr. Arthur. Encontrei seu site e gostaria de uma análise jurídica do meu caso.",
+    "_blank"
+  );
+};
 
   const triageItems = [
     {
