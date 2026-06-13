@@ -6,20 +6,18 @@ import CTAFinal from "@/components/CTAFinal";
 import Footer from "@/components/Footer";
 
 export default function ProblemasImobiliarios() {
-  const testimonials = [
-    {
-      text: "Recebi uma notificação de despejo e achei que ia perder minha casa. Minha família estava desesperada. Liguei para AMC. Eles analisaram meu contrato, viram que tinha irregularidade, e em 5 dias conseguiram suspender o despejo. Minha família continua em casa. Salvaram meu patrimônio.",
-      author: "Antônio Silva",
-      location: "Cuiabá/MT",
-      result: "Suspendeu despejo em 5 dias",
-    },
-    {
-      text: "Estava sendo executado hipotecariamente. Ia perder minha casa. Liguei para AMC desesperado. Eles entraram com ação de urgência. Em 1 semana conseguiram suspender a execução. Agora estou renegociando minha dívida. Minha casa está segura.",
-      author: "Luciana Oliveira",
-      location: "Cuiabá/MT",
-      result: "Suspendeu execução em 1 semana",
-    },
-  ];
+ const testimonials = [
+  {
+    text: "Recebi atendimento atencioso e uma análise detalhada da minha situação. As orientações foram claras e me ajudaram a compreender melhor os meus direitos e as possibilidades jurídicas do caso.",
+    author: "Cliente AMC",
+    location: "Cuiabá/MT",
+  },
+  {
+    text: "Fui atendida com profissionalismo e transparência. Recebi esclarecimentos importantes sobre o meu caso e pude tomar decisões com mais segurança e tranquilidade.",
+    author: "Cliente AMC",
+    location: "Cuiabá/MT",
+  },
+];
 
   const faqItems = [
     {
@@ -50,7 +48,7 @@ export default function ProblemasImobiliarios() {
           text: "Proteger Meu Imóvel",
           onClick: () =>
             window.open(
-              "https://wa.me/5565999999999?text=Meu imóvel está em risco. Preciso de ajuda.",
+              "https://wa.me/556598172713?text=Meu imóvel está em risco. Preciso de ajuda.",
               "_blank"
             ),
         }}
@@ -169,7 +167,7 @@ export default function ProblemasImobiliarios() {
         </div>
       </section>
 
-      <Testimonials testimonials={testimonials} title="Histórias Reais" />
+     <Testimonials testimonials={testimonials} title="Depoimentos de Clientes" />
 
       <FAQ items={faqItems} />
 
