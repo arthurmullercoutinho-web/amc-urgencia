@@ -6,20 +6,18 @@ import CTAFinal from "@/components/CTAFinal";
 import Footer from "@/components/Footer";
 
 export default function NotificacaoExtrajudicial() {
-  const testimonials = [
-    {
-      text: "Recebi uma notificação e eu não entendia nada. Estava com medo de perder o prazo. Liguei para AMC. Eles explicaram a notificação em português simples. Orientaram como responder. Respondi no prazo. Agora tenho direito de defesa. Salvaram meu caso.",
-      author: "Marcelo Ferreira",
-      location: "Cuiabá/MT",
-      result: "Respondeu notificação no prazo",
-    },
-    {
-      text: "Recebi uma notificação de ação judicial. Não sabia o que fazer. Liguei para AMC. Eles responderam a notificação para mim. Responderam estrategicamente. Agora estou defendido. Não perdi meu direito de defesa.",
-      author: "Juliana Costa",
-      location: "Cuiabá/MT",
-      result: "Respondeu notificação estrategicamente",
-    },
-  ];
+ const testimonials = [
+  {
+    text: "Recebi atendimento atencioso e orientações claras sobre a situação que estava enfrentando. Todas as minhas dúvidas foram esclarecidas de forma objetiva e transparente.",
+    author: "Cliente AMC",
+    location: "Cuiabá/MT",
+  },
+  {
+    text: "Fui atendida com profissionalismo e recebi informações importantes para compreender melhor os meus direitos e as medidas juridicamente cabíveis para o caso.",
+    author: "Cliente AMC",
+    location: "Cuiabá/MT",
+  },
+];
 
   const faqItems = [
     {
@@ -169,7 +167,7 @@ export default function NotificacaoExtrajudicial() {
         </div>
       </section>
 
-      <Testimonials testimonials={testimonials} title="Histórias Reais" />
+     <Testimonials testimonials={testimonials} title="Depoimentos de Clientes" />
 
       <FAQ items={faqItems} />
 
@@ -177,7 +175,7 @@ export default function NotificacaoExtrajudicial() {
         headline="Você não precisa ter medo de uma notificação."
         subheadline="Análise rápida. Orientação clara. Resposta estratégica."
         ctaText="Entender Minha Notificação - Fale Agora no WhatsApp"
-        whatsappNumber="5565999999999"
+        whatsappNumber="556598172713"
       />
 
       <Footer />
