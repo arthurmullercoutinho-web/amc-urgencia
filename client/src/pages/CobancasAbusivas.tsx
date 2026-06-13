@@ -6,20 +6,18 @@ import CTAFinal from "@/components/CTAFinal";
 import Footer from "@/components/Footer";
 
 export default function CobancasAbusivas() {
-  const testimonials = [
-    {
-      text: "Recebi uma cobrança de dívida que já tinha pagado. Comecei a receber notificações de ação judicial. Achei que ia perder tudo. Não conseguia trabalhar de tanta ansiedade. Liguei para AMC. Eles analisaram meus comprovantes, viram que a cobrança era indevida, e pararam a ação em 24 horas. Voltei a dormir.",
-      author: "Fernanda Costa",
-      location: "Cuiabá/MT",
-      result: "Parou cobrança indevida em 24 horas",
-    },
-    {
-      text: "Estava sendo cobrado por uma dívida que já tinha quitado. A empresa não acreditava no meu comprovante. Meu nome ficou sujo. Não conseguia crédito. Liguei para AMC. Eles entraram com ação. Em 1 semana meu nome foi limpo. Agora consigo crédito de novo.",
-      author: "Gustavo Pereira",
-      location: "Cuiabá/MT",
-      result: "Limpou nome em 1 semana",
-    },
-  ];
+ const testimonials = [
+  {
+    text: "Recebi orientação clara e objetiva sobre a situação que estava enfrentando. O atendimento foi atencioso e todas as minhas dúvidas foram esclarecidas de forma transparente.",
+    author: "Cliente AMC",
+    location: "Cuiabá/MT",
+  },
+  {
+    text: "Fui atendido com profissionalismo e recebi informações importantes para compreender melhor os meus direitos e avaliar as medidas juridicamente cabíveis para o caso.",
+    author: "Cliente AMC",
+    location: "Cuiabá/MT",
+  },
+];
 
   const faqItems = [
     {
@@ -50,7 +48,7 @@ export default function CobancasAbusivas() {
           text: "Parar a Cobrança",
           onClick: () =>
             window.open(
-              "https://wa.me/5565999999999?text=Estou sendo cobrado indevidamente. Preciso de ajuda.",
+              "https://wa.me/556598172713?text=Estou sendo cobrado indevidamente. Preciso de ajuda.",
               "_blank"
             ),
         }}
