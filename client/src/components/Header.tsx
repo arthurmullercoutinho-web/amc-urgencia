@@ -40,7 +40,17 @@ export default function Header() {
         </nav>
 
         {/* CTA Button */}
-        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+        <a
+  href={whatsappUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+  onClick={() => {
+    window.gtag?.("event", "whatsapp_click", {
+      event_category: "engagement",
+      event_label: "header",
+    });
+  }}
+>
           <Button className="hidden md:inline-flex bg-green-600 hover:bg-green-700 text-white gap-2">
             <MessageCircle className="w-4 h-4" />
             WhatsApp
@@ -81,7 +91,17 @@ export default function Header() {
             >
               FAQ
             </a>
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+           <a
+  href={whatsappUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+  onClick={() => {
+    window.gtag?.("event", "whatsapp_click", {
+      event_category: "engagement",
+      event_label: "header",
+    });
+  }}
+>
               <Button className="w-full bg-green-600 hover:bg-green-700 text-white gap-2">
                 <MessageCircle className="w-4 h-4" />
                 WhatsApp
