@@ -173,7 +173,7 @@ export default function BloqueioJudicial() {
         </div>
       </section>
 
-      <Testimonials testimonials={testimonials} title="Histórias Reais" />
+      <Testimonials testimonials={testimonials} title="Depoimentos de Clientes" />
 
       <FAQ items={faqItems} />
 
