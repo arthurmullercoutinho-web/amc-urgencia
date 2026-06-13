@@ -12,18 +12,16 @@ export default function BuscaApreensao() {
   }, []);
 
   const testimonials = [
-    {
-      text: "Meu carro foi apreendido e eu achava que tinha perdido. Não conseguia dormir de noite. Liguei para AMC desesperado. Eles analisaram em 1 hora, viram que tinha irregularidade, e em 3 dias meu carro estava de volta.",
-      author: "João Silva",
-      location: "Cuiabá/MT",
-      result: "Recuperou carro em 3 dias",
-    },
-    {
-      text: "Meu carro foi apreendido e o banco queria vender em leilão. Eu ia perder tudo. Liguei para AMC. Eles entraram com ação de urgência. Em 2 dias conseguiram suspender o leilão. Meu carro voltou para casa.",
-      author: "Carlos Mendes",
-      location: "Cuiabá/MT",
-      result: "Suspendeu leilão em 2 dias",
-    },
+   {
+  text: "Recebi atendimento rápido e todas as minhas dúvidas foram esclarecidas com clareza. Consegui entender minha situação e quais eram as alternativas juridicamente possíveis.",
+  author: "Cliente AMC",
+  location: "Cuiabá/MT",
+},
+{
+  text: "Fui atendido com atenção e profissionalismo. A análise do caso foi objetiva e me ajudou a tomar uma decisão com mais segurança.",
+  author: "Cliente AMC",
+  location: "Cuiabá/MT",
+},
   ];
 
   const faqItems = [
@@ -185,18 +183,16 @@ export default function BuscaApreensao() {
       </section>
 
       {/* Testimonials */}
-      <Testimonials testimonials={testimonials} title="Histórias Reais" />
-
+      <Testimonials testimonials={testimonials} title="Depoimentos de Clientes" />
       {/* FAQ */}
       <FAQ items={faqItems} />
 
-      {/* CTA Final */}
       <CTAFinal
-        headline="Seu carro não precisa ser perdido."
-        subheadline="Análise rápida. Orientação clara. Ação eficiente."
-        ctaText="Recuperar Meu Carro - Fale Agora no WhatsApp"
-        whatsappNumber="5565999999999"
-      />
+  headline="Receba orientação jurídica para o seu caso."
+  subheadline="Análise inicial, esclarecimento de dúvidas e avaliação das medidas juridicamente cabíveis."
+  ctaText="Falar com um Advogado"
+  whatsappNumber="556598172713"
+/>
 
       <Footer />
     </div>
