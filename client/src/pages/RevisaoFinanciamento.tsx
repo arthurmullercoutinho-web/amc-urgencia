@@ -6,20 +6,18 @@ import CTAFinal from "@/components/CTAFinal";
 import Footer from "@/components/Footer";
 
 export default function RevisaoFinanciamento() {
-  const testimonials = [
-    {
-      text: "Estava pagando juros absurdos no financiamento do carro. As parcelas ficaram tão altas que tive que parar de pagar outras contas. Estava com medo de perder tudo. AMC revisou meu contrato, viu que os juros eram abusivos, e conseguiu reduzir minhas parcelas. Agora consigo pagar e dormir tranquilo.",
-      author: "Pedro Oliveira",
-      location: "Cuiabá/MT",
-      result: "Reduziu parcelas",
-    },
-    {
-      text: "Peguei um financiamento imobiliário e as parcelas ficaram impossíveis de pagar. Liguei para AMC desesperado. Eles analisaram meu contrato, encontraram várias abusividades, e conseguiram reduzir minhas parcelas em 35%. Agora consigo pagar e manter minha casa.",
-      author: "Mariana Silva",
-      location: "Cuiabá/MT",
-      result: "Reduziu parcelas em 35%",
-    },
-  ];
+ const testimonials = [
+  {
+    text: "Recebi orientação clara sobre o meu contrato e pude compreender melhor os meus direitos e as alternativas juridicamente possíveis para o caso.",
+    author: "Cliente AMC",
+    location: "Cuiabá/MT",
+  },
+  {
+    text: "O atendimento foi atencioso e transparente. Todas as minhas dúvidas foram esclarecidas e recebi informações importantes para tomar uma decisão com mais segurança.",
+    author: "Cliente AMC",
+    location: "Cuiabá/MT",
+  },
+];
 
   const faqItems = [
     {
@@ -50,7 +48,7 @@ export default function RevisaoFinanciamento() {
           text: "Revisar Meu Financiamento",
           onClick: () =>
             window.open(
-              "https://wa.me/5565999999999?text=Minhas parcelas ficaram muito altas. Preciso revisar meu financiamento.",
+              "https://wa.me/556598172713?text=Minhas parcelas ficaram muito altas. Preciso revisar meu financiamento.",
               "_blank"
             ),
         }}
