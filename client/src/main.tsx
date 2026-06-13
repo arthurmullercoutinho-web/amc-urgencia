@@ -26,12 +26,10 @@ function Analytics() {
 
     window.gtag("js", new Date());
     window.gtag("config", "G-VRPMKC203K");
-
   }, []);
 
   return null;
 }
-
 createRoot(document.getElementById("root")!).render(
   <>
     <Analytics />
