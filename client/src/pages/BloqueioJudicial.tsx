@@ -7,19 +7,17 @@ import Footer from "@/components/Footer";
 
 export default function BloqueioJudicial() {
   const testimonials = [
-    {
-      text: "Minha conta foi bloqueada e eu não conseguia nem sacar para pagar as contas da casa. Meus filhos perguntavam quando ia ter comida. Liguei para AMC desesperada. Eles entraram com ação de desbloqueio. Em 2 dias minha conta estava aberta de novo. Salvaram minha vida.",
-      author: "Maria Santos",
-      location: "Cuiabá/MT",
-      result: "Desbloqueou conta em 2 dias",
-    },
-    {
-      text: "Minha conta foi bloqueada por uma cobrança que eu já tinha pagado. Não conseguia sacar meu salário. Liguei para AMC. Eles analisaram meus comprovantes de pagamento, viram que a cobrança era indevida, e desbloquearam minha conta em 24 horas.",
-      author: "Roberto Costa",
-      location: "Cuiabá/MT",
-      result: "Desbloqueou conta em 24 horas",
-    },
-  ];
+  {
+    text: "Recebi atendimento atencioso e todas as etapas do processo foram explicadas com clareza. Isso me trouxe mais segurança para lidar com a situação.",
+    author: "Cliente AMC",
+    location: "Cuiabá/MT",
+  },
+  {
+    text: "Fui orientado de forma transparente sobre os meus direitos e sobre as medidas que poderiam ser analisadas para o meu caso.",
+    author: "Cliente AMC",
+    location: "Cuiabá/MT",
+  },
+];
 
   const faqItems = [
     {
@@ -50,7 +48,7 @@ export default function BloqueioJudicial() {
           text: "Desbloquear Minha Conta",
           onClick: () =>
             window.open(
-              "https://wa.me/5565999999999?text=Minha conta foi bloqueada. Preciso de ajuda.",
+              "https://wa.me/556598172713?text=Minha conta foi bloqueada. Preciso de ajuda.",
               "_blank"
             ),
         }}
