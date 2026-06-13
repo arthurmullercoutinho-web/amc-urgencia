@@ -7,20 +7,17 @@ import Footer from "@/components/Footer";
 
 export default function ConflitosContratuais() {
   const testimonials = [
-    {
-      text: "Assinei um contrato de prestação de serviço. Depois percebi que as cláusulas eram abusivas. Eu estava tendo prejuízo todo mês. Liguei para AMC. Eles analisaram meu contrato, viram as abusividades, e conseguiram revisar as cláusulas. Agora o contrato é justo. Parei de ter prejuízo.",
-      author: "Rodrigo Alves",
-      location: "Cuiabá/MT",
-      result: "Revisou contrato abusivo",
-    },
-    {
-      text: "Tinha um contrato com uma empresa. Eles não estavam cumprindo o que prometeram. Eu estava tendo prejuízo. Liguei para AMC. Eles entraram com ação. Em 2 semanas conseguiram fazer a empresa cumprir. Agora meu contrato está funcionando.",
-      author: "Beatriz Santos",
-      location: "Cuiabá/MT",
-      result: "Fez empresa cumprir contrato",
-    },
-  ];
-
+  {
+    text: "Recebi atendimento atencioso e uma análise detalhada do contrato. As orientações foram claras e me ajudaram a compreender melhor os meus direitos e as alternativas juridicamente possíveis.",
+    author: "Cliente AMC",
+    location: "Cuiabá/MT",
+  },
+  {
+    text: "Fui atendida com profissionalismo e transparência. Recebi esclarecimentos importantes sobre o meu caso e pude tomar decisões com mais segurança.",
+    author: "Cliente AMC",
+    location: "Cuiabá/MT",
+  },
+];
   const faqItems = [
     {
       question: "Quanto tempo leva para revisar meu contrato?",
@@ -172,7 +169,7 @@ export default function ConflitosContratuais() {
         </div>
       </section>
 
-      <Testimonials testimonials={testimonials} title="Histórias Reais" />
+     <Testimonials testimonials={testimonials} title="Depoimentos de Clientes" />
 
       <FAQ items={faqItems} />
 
@@ -180,7 +177,7 @@ export default function ConflitosContratuais() {
         headline="Seu contrato não precisa ser abusivo."
         subheadline="Análise rápida. Orientação clara. Ação eficiente."
         ctaText="Revisar Meu Contrato - Fale Agora no WhatsApp"
-        whatsappNumber="5565999999999"
+        whatsappNumber="556598172713"
       />
 
       <Footer />
