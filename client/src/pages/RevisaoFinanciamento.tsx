@@ -170,7 +170,7 @@ export default function RevisaoFinanciamento() {
         </div>
       </section>
 
-      <Testimonials testimonials={testimonials} title="Histórias Reais" />
+     <Testimonials testimonials={testimonials} title="Depoimentos de Clientes" />
 
       <FAQ items={faqItems} />
 
