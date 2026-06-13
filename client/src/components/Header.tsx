@@ -6,8 +6,8 @@ import { Link } from "wouter";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const whatsappUrl = "https://wa.me/5565999999999?text=Olá! Gostaria de uma análise do meu caso.";
-
+  const whatsappUrl =
+  "https://wa.me/556598172713?text=Olá, Dr. Arthur. Preciso de uma análise do meu caso.";
   return (
     <header className="sticky top-0 z-50 w-full bg-white border-b border-slate-200 shadow-sm">
       <div className="container max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
