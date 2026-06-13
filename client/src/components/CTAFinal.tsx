@@ -16,7 +16,7 @@ export default function CTAFinal({
   whatsappNumber = "556598172713",
   urgencyText = "Resposta em até 1 hora",
 }: CTAFinalProps) {
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Olá! Gostaria de uma análise do meu caso.`;
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Olá, Dr. Arthur. Encontrei seu site e gostaria de uma análise jurídica do meu caso.`;
 
   return (
     <section className="w-full py-16 md:py-24 bg-gradient-to-r from-slate-900 to-slate-800">
@@ -34,7 +34,17 @@ export default function CTAFinal({
         )}
 
         {/* CTA Button */}
-        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+        <a
+  href={whatsappUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+  onClick={() => {
+    window.gtag?.("event", "whatsapp_click", {
+      event_category: "engagement",
+      event_label: "cta_final",
+    });
+  }}
+>
           <Button
             size="lg"
             className="bg-green-500 hover:bg-green-600 text-white font-bold px-10 py-8 text-xl rounded-lg shadow-2xl hover:shadow-3xl transition-all duration-200 group inline-flex items-center gap-3 scale-105"
