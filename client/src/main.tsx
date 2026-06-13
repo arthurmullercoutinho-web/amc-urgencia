@@ -12,19 +12,21 @@ declare global {
 
 function Analytics() {
   useEffect(() => {
-    const script1 = document.createElement("script");
-    script1.async = true;
-    script1.src = "https://www.googletagmanager.com/gtag/js?id=G-VRPMKC203K";
-    document.head.appendChild(script1);
+    const script = document.createElement("script");
+    script.async = true;
+    script.src =
+      "https://www.googletagmanager.com/gtag/js?id=G-VRPMKC203K";
+    document.head.appendChild(script);
 
-    const script2 = document.createElement("script");
-    script2.innerHTML = `
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-VRPMKC203K');
-    `;
-    document.head.appendChild(script2);
+    window.dataLayer = window.dataLayer || [];
+
+    window.gtag = function () {
+      window.dataLayer.push(arguments);
+    };
+
+    window.gtag("js", new Date());
+    window.gtag("config", "G-VRPMKC203K");
+
   }, []);
 
   return null;
