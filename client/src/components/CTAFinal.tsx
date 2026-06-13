@@ -13,7 +13,7 @@ export default function CTAFinal({
   headline,
   subheadline,
   ctaText,
-  whatsappNumber = "5565999999999",
+  whatsappNumber = "556598172713",
   urgencyText = "Resposta em até 1 hora",
 }: CTAFinalProps) {
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Olá! Gostaria de uma análise do meu caso.`;
