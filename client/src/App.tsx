@@ -23,7 +23,7 @@ function Router() {
       <Route path={"/busca-apreensao"} component={BuscaApreensao} />
       <Route path={"/bloqueio-judicial"} component={BloqueioJudicial} />
       <Route path={"/revisao-financiamento"} component={RevisaoFinanciamento} />
-      <Route path={"/cobranças-abusivas"} component={CobancasAbusivas} />
+      <Route path={"/cobrancas-abusivas"} component={CobancasAbusivas} />
       <Route path={"/problemas-imobiliarios"} component={ProblemasImobiliarios} />
       <Route path={"/conflitos-contratuais"} component={ConflitosContratuais} />
       <Route path={"/notificacao-extrajudicial"} component={NotificacaoExtrajudicial} />
