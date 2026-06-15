@@ -178,7 +178,7 @@ export default function CobancasAbusivas() {
         headline="Você não precisa ser cobrado indevidamente."
         subheadline="Análise rápida. Orientação clara. Ação eficiente."
         ctaText="Parar a Cobrança - Fale Agora no WhatsApp"
-        whatsappNumber="5565999999999"
+        whatsappNumber="556598172713"
       />
 
       <Footer />
