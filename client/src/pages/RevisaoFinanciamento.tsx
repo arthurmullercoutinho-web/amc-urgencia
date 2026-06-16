@@ -9,12 +9,12 @@ export default function RevisaoFinanciamento() {
  const testimonials = [
   {
     text: "Recebi orientação clara sobre o meu contrato e pude compreender melhor os meus direitos e as alternativas juridicamente possíveis para o caso.",
-    author: "Cliente AMC",
+    author: "Elaine França",
     location: "Cuiabá/MT",
   },
   {
     text: "O atendimento foi atencioso e transparente. Todas as minhas dúvidas foram esclarecidas e recebi informações importantes para tomar uma decisão com mais segurança.",
-    author: "Cliente AMC",
+    author: "Silvani S.",
     location: "Cuiabá/MT",
   },
 ];
