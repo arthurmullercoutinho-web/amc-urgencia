@@ -9,12 +9,12 @@ export default function NotificacaoExtrajudicial() {
  const testimonials = [
   {
     text: "Recebi atendimento atencioso e orientações claras sobre a situação que estava enfrentando. Todas as minhas dúvidas foram esclarecidas de forma objetiva e transparente.",
-    author: "Cliente AMC",
+    author: "Claudio Roberto da Costa",
     location: "Cuiabá/MT",
   },
   {
     text: "Fui atendida com profissionalismo e recebi informações importantes para compreender melhor os meus direitos e as medidas juridicamente cabíveis para o caso.",
-    author: "Cliente AMC",
+    author: "Ana Maria Santana",
     location: "Cuiabá/MT",
   },
 ];
