@@ -14,12 +14,12 @@ export default function BuscaApreensao() {
   const testimonials = [
    {
   text: "Recebi atendimento rápido e todas as minhas dúvidas foram esclarecidas com clareza. Consegui entender minha situação e quais eram as alternativas juridicamente possíveis.",
-  author: "Cliente AMC",
+  author: "João Vitor S.",
   location: "Cuiabá/MT",
 },
 {
   text: "Fui atendido com atenção e profissionalismo. A análise do caso foi objetiva e me ajudou a tomar uma decisão com mais segurança.",
-  author: "Cliente AMC",
+  author: "Maria da Costa",
   location: "Cuiabá/MT",
 },
   ];
