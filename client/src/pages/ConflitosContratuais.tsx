@@ -9,12 +9,12 @@ export default function ConflitosContratuais() {
   const testimonials = [
   {
     text: "Recebi atendimento atencioso e uma análise detalhada do contrato. As orientações foram claras e me ajudaram a compreender melhor os meus direitos e as alternativas juridicamente possíveis.",
-    author: "Cliente AMC",
+    author: "Frederico Mendes",
     location: "Cuiabá/MT",
   },
   {
     text: "Fui atendida com profissionalismo e transparência. Recebi esclarecimentos importantes sobre o meu caso e pude tomar decisões com mais segurança.",
-    author: "Cliente AMC",
+    author: "Jurandir Silva",
     location: "Cuiabá/MT",
   },
 ];
