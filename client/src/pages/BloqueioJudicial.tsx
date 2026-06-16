@@ -9,12 +9,12 @@ export default function BloqueioJudicial() {
   const testimonials = [
   {
     text: "Recebi atendimento atencioso e todas as etapas do processo foram explicadas com clareza. Isso me trouxe mais segurança para lidar com a situação.",
-    author: "Cliente AMC",
+    author: "Carlos Henrique Silva",
     location: "Cuiabá/MT",
   },
   {
     text: "Fui orientado de forma transparente sobre os meus direitos e sobre as medidas que poderiam ser analisadas para o meu caso.",
-    author: "Cliente AMC",
+    author: "Domingos soares",
     location: "Cuiabá/MT",
   },
 ];
