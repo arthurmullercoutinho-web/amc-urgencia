@@ -9,12 +9,12 @@ export default function ProblemasImobiliarios() {
  const testimonials = [
   {
     text: "Recebi atendimento atencioso e uma análise detalhada da minha situação. As orientações foram claras e me ajudaram a compreender melhor os meus direitos e as possibilidades jurídicas do caso.",
-    author: "Cliente AMC",
+    author: "Adriana Dias",
     location: "Cuiabá/MT",
   },
   {
     text: "Fui atendida com profissionalismo e transparência. Recebi esclarecimentos importantes sobre o meu caso e pude tomar decisões com mais segurança e tranquilidade.",
-    author: "Cliente AMC",
+    author: "Lenice da Silva",
     location: "Cuiabá/MT",
   },
 ];
