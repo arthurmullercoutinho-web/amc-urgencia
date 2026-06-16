@@ -9,12 +9,12 @@ export default function CobancasAbusivas() {
  const testimonials = [
   {
     text: "Recebi orientação clara e objetiva sobre a situação que estava enfrentando. O atendimento foi atencioso e todas as minhas dúvidas foram esclarecidas de forma transparente.",
-    author: "Cliente AMC",
+    author: "Eliane Mendes",
     location: "Cuiabá/MT",
   },
   {
     text: "Fui atendido com profissionalismo e recebi informações importantes para compreender melhor os meus direitos e avaliar as medidas juridicamente cabíveis para o caso.",
-    author: "Cliente AMC",
+    author: "Rodrigo M. F.",
     location: "Cuiabá/MT",
   },
 ];
