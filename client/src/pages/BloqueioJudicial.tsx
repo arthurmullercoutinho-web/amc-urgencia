@@ -43,7 +43,7 @@ export default function ContaBloqueada() {
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
 
-      <Herói
+      <Hero
   Manchete="Sua conta foi bloqueada ou seu dinheiro ficou retido?"
   Subtitulo="Conta em análise, saldo indisponível, PIX bloqueado ou valores retidos? Analisamos seu caso e orientamos as medidas possíveis para buscar a liberação do dinheiro."
   Texto="Quero Analisar Meu Bloqueio"
