@@ -50,18 +50,18 @@ export default function Home() {
       ctaText: "Saiba Mais",
       ctaLink: "/busca-apreensao",
     },
-    {
-      icon: "💰",
-      title: "Bloqueio Judicial",
-      description: "Sua conta foi bloqueada e você não consegue movimentar seu dinheiro?",
-      problems: [
-        "Conta bloqueada",
-        "Sem acesso ao dinheiro",
-        "Desbloqueio urgente",
-      ],
-      ctaText: "Saiba Mais",
-      ctaLink: "/bloqueio-judicial",
-    },
+   {
+  Icone: "🏦",
+  Titulo: "Conta Bloqueada ou Dinheiro Retido",
+  Descricao: "Analisamos situações de bloqueio bancário, retenção de valores e suspeita de fraude.",
+  Problemas: [
+    "Conta bloqueada",
+    "Dinheiro retido",
+    "PIX indisponível",
+  ],
+  ctaText: "Saiba Mais",
+  ctaLink: "/bloqueio-judicial",
+},
     {
       icon: "📋",
       title: "Revisão de Financiamento",
