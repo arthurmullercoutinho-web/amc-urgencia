@@ -5,7 +5,7 @@ import FAQ from "@/components/FAQ";
 import CTAFinal from "@/components/CTAFinal";
 import Footer from "@/components/Footer";
 
-export default function BloqueioJudicial() {
+export default function ContaBloqueada() {
   const testimonials = [
   {
     text: "Recebi atendimento atencioso e todas as etapas do processo foram explicadas com clareza. Isso me trouxe mais segurança para lidar com a situação.",
@@ -20,21 +20,26 @@ export default function BloqueioJudicial() {
 ];
 
   const faqItems = [
+   {
+  question: "Quanto tempo leva para resolver uma conta bloqueada?",
+  answer:
+    "O prazo varia conforme a situação. Cada caso depende do motivo do bloqueio, da documentação disponível e das medidas que podem ser adotadas. Após a análise inicial, é possível fornecer uma orientação mais precisa."
+},
+{
+  question: "É possível recuperar o dinheiro bloqueado?",
+  answer:
+    "Dependendo das circunstâncias do caso, podem existir medidas para buscar a liberação dos valores e a reparação de eventuais prejuízos. A viabilidade precisa ser analisada individualmente."
+},
+{
+  question: "Minha conta foi bloqueada por suspeita de fraude. O que devo fazer?",
+  answer:
+    "O primeiro passo é identificar a causa do bloqueio e reunir os documentos relacionados ao caso. Com essas informações, é possível avaliar quais medidas podem ser adotadas para buscar a regularização da conta e o acesso aos valores."
+},
     {
-      question: "Quanto tempo leva para desbloquear minha conta?",
-      answer:
-        "Alguns casos levam 24-48 horas, outros levam até 1 semana. Tudo depende de abusividade no bloqueio, como o juiz interpreta a lei, e se o credor recorre. A gente te fala exatamente depois da análise.",
-    },
-    {
-      question: "Meu dinheiro vai voltar?",
-      answer:
-        "Na maioria dos casos, sim. Mas a gente é honesta: nem todo caso tem sucesso. Depende dos fatos, da documentação, e do juiz. O que a gente garante é análise completa, orientação clara, ação rápida e transparência total.",
-    },
-    {
-      question: "Posso sacar meu dinheiro enquanto vocês trabalham?",
-      answer:
-        "Depende. Se a gente conseguir uma medida de urgência, você pode sacar enquanto o processo acontece. Se não conseguir, você fica sem acesso enquanto a gente trabalha. Mas a gente trabalha rápido. A gente te explica isso depois da análise.",
-    },
+  question: "O banco pode bloquear minha conta e reter meu dinheiro?",
+  answer:
+    "As instituições financeiras possuem mecanismos de segurança e prevenção a fraudes, mas o bloqueio deve observar os direitos do consumidor e as circunstâncias do caso concreto. Quando houver abuso ou falha na prestação do serviço, podem existir medidas cabíveis."
+}
   ];
 
   return (
@@ -42,10 +47,9 @@ export default function BloqueioJudicial() {
       <Header />
 
       <Hero
-        headline="Sua conta foi bloqueada. Você não consegue sacar nada."
-        subheadline="Acordou com a conta zerada. Não consegue sacar. Não consegue transferir. Não consegue fazer nada. Você não sabe o que fazer. Você tem direito a defesa. Nós sabemos como usar isso."
-        ctaPrimary={{
-          text: "Desbloquear Minha Conta",
+        Manchete="Sua conta foi bloqueada ou seu dinheiro ficou retido?"
+Conta em análise, saldo indisponível, PIX bloqueado ou valores retidos? Analisamos seu caso e orientamos as medidas cabíveis para buscar a liberação dos valores.
+Texto: "Quero Analisar Meu Bloqueio"
           onClick: () =>
             window.open(
               "https://wa.me/556598172713?text=Minha conta foi bloqueada. Preciso de ajuda.",
@@ -62,19 +66,19 @@ export default function BloqueioJudicial() {
           </h2>
           <div className="space-y-4 text-lg text-slate-700">
             <p>
-              Você tinha uma dívida. Ou acha que tinha. Ou já pagou, mas o credor não acreditou. Ou é uma cobrança abusiva.
+               Você tenta acessar sua conta normalmente e descobre que não consegue movimentar seu dinheiro.
             </p>
             <p>
-              De repente, seu banco te avisa: "Sua conta foi bloqueada por ordem judicial."
+               Em alguns casos, o banco informa que a conta está em análise. Em outros, menciona suspeita de fraude, bloqueio de segurança ou retenção de valores."
             </p>
             <p>
-              Você tenta sacar. Não consegue. Tenta transferir. Não consegue. Tenta fazer qualquer coisa. Não consegue.
+             Você não consegue sacar. Não consegue transferir. Não consegue utilizar o PIX. E muitas vezes sequer recebe uma explicação clara sobre o que aconteceu.
             </p>
             <p>
-              Você está preso. Sem dinheiro. Sem saber o que fazer. Você tem filhos para alimentar. Contas para pagar. E seu dinheiro está congelado.
-            </p>
+              Enquanto isso, contas vencem, compromissos financeiros continuam surgindo e o dinheiro permanece indisponível.
+              </p>
             <p className="font-semibold text-blue-600">
-              Você não perdeu seu dinheiro. Você tem direito a defesa.
+             Dependendo da situação, existem medidas que podem ser avaliadas para buscar a liberação dos valores e a reparação dos prejuízos causados.
             </p>
           </div>
         </div>
@@ -89,37 +93,37 @@ export default function BloqueioJudicial() {
           <div className="space-y-6">
             <div className="p-6 bg-red-50 border border-red-200 rounded-lg">
               <h3 className="text-xl font-bold text-red-900 mb-2">
-                ❌ Você fica sem dinheiro para viver
+                ❌ Você perde acesso ao seu dinheiro
               </h3>
               <p className="text-red-800">
-                Sua conta está bloqueada. Você não consegue sacar para comer. Você não consegue pagar as contas. Você não consegue fazer nada.
+                Sua conta fica bloqueada e você não consegue sacar, transferir ou utilizar o PIX normalmente. Enquanto isso, compromissos financeiros continuam vencendo.
               </p>
             </div>
 
             <div className="p-6 bg-red-50 border border-red-200 rounded-lg">
               <h3 className="text-xl font-bold text-red-900 mb-2">
-                ❌ Seu dinheiro é confiscado
+                ❌ Valores ficam retidos
               </h3>
               <p className="text-red-800">
-                O banco transfere seu dinheiro para o credor. Você perde seu patrimônio. Você fica sem nada.
+                Em alguns casos, o saldo permanece indisponível por dias ou semanas, dificultando o pagamento de despesas e a movimentação financeira.
               </p>
             </div>
 
             <div className="p-6 bg-red-50 border border-red-200 rounded-lg">
               <h3 className="text-xl font-bold text-red-900 mb-2">
-                ❌ Você fica com nome sujo
+                ❌ Falta de informação gera insegurança
               </h3>
               <p className="text-red-800">
-                Além do bloqueio, seu nome fica sujo. Você não consegue crédito nunca mais. Você não consegue financiar nada.
+                Muitas pessoas não recebem uma explicação clara sobre o motivo do bloqueio e ficam sem saber quais providências podem ser adotadas para regularizar a situação.
               </p>
             </div>
 
             <div className="p-6 bg-green-50 border border-green-200 rounded-lg">
               <h3 className="text-xl font-bold text-green-900 mb-2">
-                ✅ Você desbloqueia sua conta
+                ✅ Busque uma solução para o bloqueio
               </h3>
               <p className="text-green-800">
-                A gente entra com ação. Suspendemos o bloqueio. Você recupera acesso ao seu dinheiro. Você continua sua vida.
+                Dependendo das circunstâncias do caso, podem existir medidas para buscar o acesso aos valores, regularizar a conta e reduzir os prejuízos causados pelo bloqueio.A
               </p>
             </div>
           </div>
@@ -135,25 +139,25 @@ export default function BloqueioJudicial() {
           <div className="space-y-4">
             {[
               {
-                step: "1",
-                title: "Você manda os documentos",
-                desc: "Notificação do banco, comprovante de bloqueio, tudo.",
-              },
-              {
-                step: "2",
-                title: "A gente procura abusividade (em 1 hora)",
-                desc: "Se o bloqueio foi feito corretamente. Se tem abusividade no bloqueio. Se você tem direito a defesa.",
-              },
-              {
-                step: "3",
-                title: "A gente entra com ação",
-                desc: "Ação para desbloquear sua conta. Pede para o juiz liberar seu dinheiro.",
-              },
-              {
-                step: "4",
-                title: "Você recupera seu dinheiro",
-                desc: "Na maioria dos casos, o juiz concede. Sua conta volta a funcionar. Seu dinheiro está seguro.",
-              },
+  step: "1",
+  title: "Você envia os documentos",
+  desc: "Envie prints do aplicativo, notificações do banco, comprovantes do bloqueio, protocolos de atendimento e demais informações do caso.",
+},
+{
+  step: "2",
+  title: "Analisamos o motivo do bloqueio",
+  desc: "Verificamos se houve retenção de valores, conta em análise, suspeita de fraude, bloqueio de segurança ou ausência de explicação adequada.",
+},
+{
+  step: "3",
+  title: "Indicamos as medidas cabíveis",
+  desc: "Após a análise, avaliamos quais providências podem ser adotadas para buscar a regularização da conta e a liberação dos valores.",
+},
+{
+  step: "4",
+  title: "Acompanhamos o caso",
+  desc: "O objetivo é buscar uma solução para o bloqueio, reduzir os prejuízos causados e avaliar eventual reparação quando houver falha na prestação do serviço.",
+},
             ].map((item, index) => (
               <div key={index} className="flex gap-4">
                 <div className="flex-shrink-0">
@@ -181,7 +185,7 @@ export default function BloqueioJudicial() {
         headline="Seu dinheiro não precisa ficar bloqueado."
         subheadline="Análise rápida. Orientação clara. Ação eficiente."
         ctaText="Desbloquear Minha Conta - Fale Agora no WhatsApp"
-        whatsappNumber="5565999999999"
+        "https://wa.me/556598172713?text=Minha conta foi bloqueada pelo banco ou meu dinheiro ficou retido. Preciso de ajuda."
       />
 
       <Footer />
