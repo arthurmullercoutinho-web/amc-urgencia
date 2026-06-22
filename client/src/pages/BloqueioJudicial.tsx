@@ -44,8 +44,8 @@ export default function ContaBloqueada() {
       <Header />
 
    <Hero
-  headline="Sua conta foi bloqueada. Você não consegue sacar nada."
-  subheadline="Acordou com a conta zerada. Não consegue sacar. Não consegue transferir. Não consegue fazer nada. Você não sabe o que fazer. Você tem direito a defesa. Nós sabemos como usar isso."
+  headline="Sua conta foi bloqueada ou seu dinheiro ficou retido?."
+  subheadline="Conta em análise, saldo indisponível, PIX bloqueado ou suspeita de fraude. Entenda quais providências podem ser adotadas para buscar a regularização da situação."
   ctaPrimary={{
     text: "Desbloquear Minha Conta",
     onClick: () =>
