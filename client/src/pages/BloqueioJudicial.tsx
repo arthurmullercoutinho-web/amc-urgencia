@@ -155,7 +155,7 @@ export default function ContaBloqueada() {
   title: "Acompanhamos o caso",
   desc: "O objetivo é buscar uma solução para o bloqueio, reduzir os prejuízos causados e avaliar eventual reparação quando houver falha na prestação do serviço.",
 },
-            ].map((item, index) => (
+           ].map((item, indice) => (
               <div key={index} className="flex gap-4">
                 <div className="flex-shrink-0">
                   <div className="flex items-center justify-center h-10 w-10 rounded-full bg-blue-600 text-white font-bold">
@@ -173,7 +173,7 @@ export default function ContaBloqueada() {
           </div>
         </div>
       </section>
-
+))
       <Testimonials testimonials={testimonials} title="Depoimentos de Clientes" />
 
       <FAQ items={faqItems} />
