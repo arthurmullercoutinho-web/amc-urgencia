@@ -53,9 +53,9 @@ export default function ContaBloqueada() {
     window.open(
       "https://wa.me/556598172713?text=Minha conta foi bloqueada pelo banco ou meu dinheiro ficou retido. Preciso de ajuda.",
       "_blank"
-    ),
-}}
-
+         ),
+  }}
+/>
       <section className="w-full py-12 md:py-16 bg-slate-50">
         <div className="container max-w-3xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-slate-900 mb-6">
