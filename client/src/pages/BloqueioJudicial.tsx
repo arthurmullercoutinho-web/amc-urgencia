@@ -19,7 +19,7 @@ export default function ContaBloqueada() {
   },
 ];
 
- const faqItens = [
+ const faqItems = [
   {
     question: "Quanto tempo leva para resolver uma conta bloqueada?",
     answer: "O prazo varia conforme a situação. Cada caso depende do motivo do bloqueio, da documentação disponível e das medidas que podem ser adotadas. Após a análise inicial, é possível fornecer uma orientação"
