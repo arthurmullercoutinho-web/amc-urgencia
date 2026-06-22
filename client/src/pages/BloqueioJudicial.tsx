@@ -178,12 +178,12 @@ export default function ContaBloqueada() {
 
       <FAQ items={faqItems} />
 
-      <CTAFinal
-        headline="Seu dinheiro não precisa ficar bloqueado."
-        subheadline="Análise rápida. Orientação clara. Ação eficiente."
-        ctaText="Desbloquear Minha Conta - Fale Agora no WhatsApp"
-        "https://wa.me/556598172713?text=Minha conta foi bloqueada pelo banco ou meu dinheiro ficou retido. Preciso de ajuda."
-      />
+     <CTAFinal
+  headline="Não fique sem acesso ao seu dinheiro."
+  subheadline="Análise rápida. Orientação clara. Medidas cabíveis para o seu caso."
+  ctaText="Quero Analisar Meu Bloqueio"
+  ctaLink="https://wa.me/556598172713?text=Minha conta foi bloqueada pelo banco ou meu dinheiro ficou retido. Preciso de ajuda."
+/>
 
       <Footer />
     </div>
