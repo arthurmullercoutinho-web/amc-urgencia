@@ -19,28 +19,25 @@ export default function ContaBloqueada() {
   },
 ];
 
-  const faqItems = [
-   {
-  question: "Quanto tempo leva para resolver uma conta bloqueada?",
-  answer:
-    "O prazo varia conforme a situação. Cada caso depende do motivo do bloqueio, da documentação disponível e das medidas que podem ser adotadas. Após a análise inicial, é possível fornecer uma orientação mais precisa."
-},
-{
-  question: "É possível recuperar o dinheiro bloqueado?",
-  answer:
-    "Dependendo das circunstâncias do caso, podem existir medidas para buscar a liberação dos valores e a reparação de eventuais prejuízos. A viabilidade precisa ser analisada individualmente."
-},
-{
-  question: "Minha conta foi bloqueada por suspeita de fraude. O que devo fazer?",
-  answer:
-    "O primeiro passo é identificar a causa do bloqueio e reunir os documentos relacionados ao caso. Com essas informações, é possível avaliar quais medidas podem ser adotadas para buscar a regularização da conta e o acesso aos valores."
-},
-    {
-  question: "O banco pode bloquear minha conta e reter meu dinheiro?",
-  answer:
-    "As instituições financeiras possuem mecanismos de segurança e prevenção a fraudes, mas o bloqueio deve observar os direitos do consumidor e as circunstâncias do caso concreto. Quando houver abuso ou falha na prestação do serviço, podem existir medidas cabíveis."
-}
-  ];
+ const faqItens = [
+  {
+    question: "Quanto tempo leva para resolver uma conta bloqueada?",
+    answer: "O prazo varia conforme a situação. Cada caso depende do motivo do bloqueio, da documentação disponível e das medidas que podem ser adotadas. Após a análise inicial, é possível fornecer uma orientação"
+  },
+  {
+    question: "É possível recuperar o dinheiro bloqueado?",
+    answer: "Dependendo das circunstâncias do caso, podem existir medidas para buscar a liberação dos valores e a reparação de eventuais prejuízos. A viabilidade precisa ser analisada individualmente."
+  },
+  {
+    question: "Minha conta foi bloqueada por suspeita de fraude. O que devo fazer?",
+    answer: "O primeiro passo é identificar a causa do bloqueio e reunir os documentos relacionados ao caso. Com essas informações, é possível avaliar quais medidas podem ser adotadas para buscar a regularização"
+  },
+  {
+    question: "O banco pode bloquear minha conta e reter meu dinheiro?",
+    answer: "As instituições financeiras possuem mecanismos de segurança e prevenção a fraudes, mas o bloqueio deve observar os direitos do consumidor e as circunstâncias do caso concreto."
+  }
+];
+
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
