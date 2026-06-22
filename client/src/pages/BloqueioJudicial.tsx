@@ -44,17 +44,17 @@ export default function ContaBloqueada() {
       <Header />
 
    <Hero
-  Manchete="Sua conta foi bloqueada ou seu dinheiro ficou retido?"
-  Subtitulo="Conta em análise, saldo indisponível, PIX bloqueado ou valores retidos?"
-  Descrição="Analisamos seu caso e orientamos as medidas possíveis para buscar a liberação do dinheiro."
- ctaPrimary={{
-  Texto: "Quero Analisar Meu Bloqueio",
-  onClick: () =>
-    window.open(
-      "https://wa.me/556598172713?text=Minha conta foi bloqueada pelo banco ou meu dinheiro ficou retido. Preciso de ajuda.",
-      "_blank"
-         ),
+  headline="Sua conta foi bloqueada. Você não consegue sacar nada."
+  subheadline="Acordou com a conta zerada. Não consegue sacar. Não consegue transferir. Não consegue fazer nada. Você não sabe o que fazer. Você tem direito a defesa. Nós sabemos como usar isso."
+  ctaPrimary={{
+    text: "Desbloquear Minha Conta",
+    onClick: () =>
+      window.open(
+        "https://wa.me/556598172713?text=Minha conta foi bloqueada. Preciso de ajuda.",
+        "_blank"
+      ),
   }}
+  urgencyBadge="⏱️ Análise em 1 Hora"
 />
       <section className="w-full py-12 md:py-16 bg-slate-50">
         <div className="container max-w-3xl mx-auto px-4">
