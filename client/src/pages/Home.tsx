@@ -50,7 +50,7 @@ export default function Home() {
       ctaText: "Saiba Mais",
       ctaLink: "/busca-apreensao",
     },
-   {
+  {
   Icone: "🏦",
   Titulo: "Conta Bloqueada ou Dinheiro Retido",
   Descricao: "Analisamos situações de bloqueio bancário, retenção de valores e suspeita de fraude.",
