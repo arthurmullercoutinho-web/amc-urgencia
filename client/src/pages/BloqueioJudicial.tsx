@@ -55,7 +55,6 @@ export default function ContaBloqueada() {
         "_blank"
       ),
   }}
-  DistintivoDeUrgência="⏱️ Análise em 1 Hora"
 />
 
       <section className="w-full py-12 md:py-16 bg-slate-50">
