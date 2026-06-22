@@ -44,7 +44,8 @@ export default function ContaBloqueada() {
       <Header />
 
    <Hero
-  headline="Sua conta foi bloqueada ou seu dinheiro ficou retido?."
+  headline="Sua conta foi bloqueada
+ou seu dinheiro foi retido?"
   subheadline="Conta em análise, saldo indisponível, PIX bloqueado ou suspeita de fraude. Entenda quais providências podem ser adotadas para buscar a regularização da situação."
   ctaPrimary={{
     text: "Desbloquear Minha Conta",
