@@ -21,7 +21,7 @@ function Router() {
     <Switch>
       <Route path={"/"} component={Home} />
       <Route path={"/busca-apreensao"} component={BuscaApreensao} />
-      <Route path={"/bloqueio-judicial"} component={BloqueioJudicial} />
+      <Route path="/conta-bloqueada" component={BloqueioJudicial} />
       <Route path={"/revisao-financiamento"} component={RevisaoFinanciamento} />
       <Route path={"/cobrancas-abusivas"} component={CobancasAbusivas} />
       <Route path={"/problemas-imobiliarios"} component={ProblemasImobiliarios} />
