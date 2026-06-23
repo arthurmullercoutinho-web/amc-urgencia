@@ -60,7 +60,7 @@ export default function Home() {
     "PIX indisponível",
   ],
   ctaText: "Saiba Mais",
-  ctaLink: "/bloqueio-judicial",
+  ctaLink: "/conta-bloqueada",
 },
     {
       icon: "📋",
