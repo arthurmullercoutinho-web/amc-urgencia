@@ -7,6 +7,17 @@ interface CTAFinalProps {
   ctaText: string;
   whatsappNumber?: string;
   urgencyText?: string;
+  /**
+   * Mensagem usada no link do WhatsApp. Opcional — mantém a mensagem
+   * original como padrão para não alterar páginas que já usam este
+   * componente sem passar essa prop.
+   */
+  whatsappMessage?: string;
+  /**
+   * Tracking do clique. Opcional — se omitida, mantém o comportamento
+   * original (apenas o evento gtag "whatsapp_click").
+   */
+  onWhatsappClick?: () => void;
 }
 
 export default function CTAFinal({
@@ -15,8 +26,21 @@ export default function CTAFinal({
   ctaText,
   whatsappNumber = "556598172713",
   urgencyText = "Resposta em até 1 hora",
+  whatsappMessage = "Olá, Dr. Arthur. Encontrei seu site e gostaria de uma análise jurídica do meu caso.",
+  onWhatsappClick,
 }: CTAFinalProps) {
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Olá, Dr. Arthur. Encontrei seu site e gostaria de uma análise jurídica do meu caso.`;
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+    whatsappMessage
+  )}`;
+
+  const handleClick =
+    onWhatsappClick ??
+    (() => {
+      window.gtag?.("event", "whatsapp_click", {
+        event_category: "engagement",
+        event_label: "cta_final",
+      });
+    });
 
   return (
     <section className="w-full py-16 md:py-24 bg-gradient-to-r from-slate-900 to-slate-800">
@@ -25,26 +49,19 @@ export default function CTAFinal({
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
           {headline}
         </h2>
-
         {/* Subheadline */}
         {subheadline && (
           <p className="text-lg text-slate-200 mb-8 max-w-2xl mx-auto">
             {subheadline}
           </p>
         )}
-
         {/* CTA Button */}
         <a
-  href={whatsappUrl}
-  target="_blank"
-  rel="noopener noreferrer"
-  onClick={() => {
-    window.gtag?.("event", "whatsapp_click", {
-      event_category: "engagement",
-      event_label: "cta_final",
-    });
-  }}
->
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={handleClick}
+        >
           <Button
             size="lg"
             className="bg-green-500 hover:bg-green-600 text-white font-bold px-10 py-8 text-xl rounded-lg shadow-2xl hover:shadow-3xl transition-all duration-200 group inline-flex items-center gap-3 scale-105"
@@ -54,7 +71,6 @@ export default function CTAFinal({
             <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
           </Button>
         </a>
-
         {/* Urgency Text */}
         {urgencyText && (
           <p className="text-sm text-amber-300 mt-6">
