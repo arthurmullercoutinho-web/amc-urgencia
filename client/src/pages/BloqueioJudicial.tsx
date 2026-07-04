@@ -140,22 +140,39 @@ export default function ContaBloqueada() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      <Header />
+      {/*
+        Header + Hero agrupados num wrapper próprio de min-h-screen.
+        Hero usa flex-1 (ver Hero.tsx) para preencher automaticamente o
+        espaço restante da primeira tela depois do Header — sem precisar
+        saber a altura exata dele.
+      */}
+      <div className="min-h-screen flex flex-col">
+        <Header />
 
-      <Hero
-        headline="Sua conta foi bloqueada ou seu dinheiro foi retido?"
-        subheadline="Um advogado pode ajudar você a entender o motivo do bloqueio e quais medidas podem ser avaliadas — sem custo para conversar."
-        microbar="Dr. Arthur Müller Coutinho · OAB/MT 10.889"
-        ctaPrimary={{
-          text: "Quero entender meu bloqueio",
-          onClick: () => {
-            trackWhatsAppClick();
-            window.open(WHATSAPP_URL, "_blank");
-          },
-        }}
-        whatsappFloatingMessage={WHATSAPP_MESSAGE}
-        onWhatsappFloatingClick={trackWhatsAppClick}
-      />
+        <Hero
+          headline="Sua conta foi bloqueada ou seu dinheiro foi retido?"
+          subheadline="Um advogado pode ajudar você a entender o motivo do bloqueio e quais medidas podem ser avaliadas — sem custo para conversar."
+          microbar="Dr. Arthur Müller Coutinho · OAB/MT 10.889"
+          ctaPrimary={{
+            text: "Quero entender meu bloqueio",
+            onClick: () => {
+              trackWhatsAppClick();
+              window.open(WHATSAPP_URL, "_blank");
+            },
+          }}
+          ctaMicro={
+            <>
+              Sem custo para conversar &nbsp;•&nbsp; Sigilo profissional{" "}
+              &nbsp;•&nbsp;{" "}
+              <span className="text-emerald-400 font-semibold">
+                Resposta em até 1 hora útil
+              </span>
+            </>
+          }
+          whatsappFloatingMessage={WHATSAPP_MESSAGE}
+          onWhatsappFloatingClick={trackWhatsAppClick}
+        />
+      </div>
 
       {/*
         Seção única "O que costuma acontecer" — substitui as três seções
