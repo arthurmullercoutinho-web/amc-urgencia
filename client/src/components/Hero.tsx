@@ -18,6 +18,26 @@ interface HeroProps {
   lawyerTitle?: string;
   lawyerOAB?: string;
   lawyerLocation?: string;
+  /**
+   * Linha discreta e pequena no topo do Hero (ex: "Dr. Fulano · OAB/XX 000").
+   * Diferente de lawyerName/lawyerOAB/lawyerLocation, que renderizam o bloco
+   * grande de credenciais mais abaixo. Opcional — se omitida, nada é
+   * renderizado, comportamento igual ao de antes desta alteração.
+   */
+  microbar?: string;
+  /**
+   * Mensagem usada no botão flutuante de WhatsApp. Opcional — mantém a
+   * mensagem original como padrão para não alterar páginas que já usam
+   * este componente sem passar essa prop.
+   */
+  whatsappFloatingMessage?: string;
+  /** Número usado no botão flutuante (mesmo padrão de CTAFinal.tsx). */
+  whatsappNumber?: string;
+  /**
+   * Tracking do clique no botão flutuante. Opcional — se omitida, mantém
+   * o comportamento original (apenas o evento gtag "whatsapp_click").
+   */
+  onWhatsappFloatingClick?: () => void;
 }
 
 export default function Hero({
@@ -31,13 +51,37 @@ export default function Hero({
   lawyerTitle,
   lawyerOAB,
   lawyerLocation,
+  microbar,
+  whatsappFloatingMessage = "Olá, Dr. Arthur. Preciso de uma análise do meu caso.",
+  whatsappNumber = "556598172713",
+  onWhatsappFloatingClick,
 }: HeroProps) {
+  const floatingWhatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+    whatsappFloatingMessage
+  )}`;
+
+  const handleFloatingClick =
+    onWhatsappFloatingClick ??
+    (() => {
+      window.gtag?.("event", "whatsapp_click", {
+        event_category: "engagement",
+        event_label: "floating_whatsapp",
+      });
+    });
+
   return (
     <>
       {/* Hero Section - Premium Navy Blue + Gold */}
       <section className="relative w-full min-h-screen md:min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 overflow-hidden flex items-center justify-center">
         <div className="relative z-10 w-full max-w-3xl px-4 py-8 md:py-20 text-center">
-          
+
+          {/* Microbarra discreta — opcional, uma linha só */}
+          {microbar && (
+            <p className="text-[11px] md:text-xs text-slate-300 mb-2 md:mb-4">
+              {microbar}
+            </p>
+          )}
+
           {/* Urgency Badge - Gold */}
           {urgencyBadge && (
             <div className="mb-3 md:mb-8 flex justify-center">
@@ -110,15 +154,10 @@ export default function Hero({
 
         {/* Floating WhatsApp Button */}
         <a
-          href="https://wa.me/556598172713?text=Olá, Dr. Arthur. Preciso de uma análise do meu caso."
+          href={floatingWhatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-         onClick={() => {
-  window.gtag?.("event", "whatsapp_click", {
-    event_category: "engagement",
-    event_label: "floating_whatsapp",
-  });
-}}
+          onClick={handleFloatingClick}
           className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-2xl transition-all duration-300 hover:scale-110 flex items-center justify-center"
           aria-label="Fale conosco no WhatsApp"
         >
