@@ -72,8 +72,8 @@ export default function Hero({
   return (
     <>
       {/* Hero Section - Premium Navy Blue + Gold */}
-      <section className="relative w-full min-h-[calc(100vh-80px)] md:min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 overflow-hidden flex items-start md:items-center justify-center">
-        <div className="relative z-10 w-full max-w-3xl px-4 pt-6 pb-8 md:py-20 text-center">
+      <section className="relative w-full min-h-screen md:min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 overflow-hidden flex items-center justify-center">
+        <div className="relative z-10 w-full max-w-3xl px-4 py-8 md:py-20 -mt-10 md:mt-0 text-center">
 
           {/* Microbarra discreta — opcional, uma linha só */}
           {microbar && (
