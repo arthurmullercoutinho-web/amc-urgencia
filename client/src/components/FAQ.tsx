@@ -4,17 +4,16 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import type { ReactNode } from "react";
 
 interface FAQItem {
   question: string;
-  answer: string;
+  answer: string | ReactNode;
 }
-
 interface FAQProps {
   items: FAQItem[];
   title?: string;
 }
-
 export default function FAQ({ items, title = "Perguntas Frequentes" }: FAQProps) {
   return (
     <section className="w-full py-12 md:py-16 bg-gradient-to-b from-white to-slate-50">
@@ -24,7 +23,6 @@ export default function FAQ({ items, title = "Perguntas Frequentes" }: FAQProps)
             {title}
           </h2>
         )}
-
         <Accordion type="single" collapsible className="space-y-3">
           {items.map((item, index) => (
             <AccordionItem
