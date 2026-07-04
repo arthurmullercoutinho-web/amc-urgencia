@@ -1,22 +1,17 @@
-import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import CTAFinal from "@/components/CTAFinal";
-import Footer from "@/components/Footer";
 
-// Mensagem e link do WhatsApp — mesma mensagem usada em todos os CTAs
-// da versão aprovada da landing (Hero e CTA final).
 const WHATSAPP_MESSAGE =
   "Olá Dr. Arthur.\n\nEncontrei a página sobre conta bloqueada.\n\nGostaria de entender o que aconteceu com minha conta e quais medidas podem ser avaliadas para o meu caso.";
 const WHATSAPP_URL = `https://wa.me/556598172713?text=${encodeURIComponent(
   WHATSAPP_MESSAGE
 )}`;
 
-// Idêntica à função de tracking da versão aprovada (GA4 + Google Ads + Meta
-// Pixel). Usa o mesmo padrão de optional chaining já presente em Hero.tsx
-// e CTAFinal.tsx (window.gtag?. / window.fbq?.), o que indica que os tipos
-// globais já estão declarados em algum lugar do projeto.
+const MAPS_URL =
+  "https://www.google.com/maps/search/?api=1&query=Edif%C3%ADcio%20Cuiab%C3%A1%20Work%20Center%2C%20Av.%20Historiador%20Rubens%20de%20Mendon%C3%A7a%2C%201836%2C%20Jardim%20Aclima%C3%A7%C3%A3o%2C%20Cuiab%C3%A1%20-%20MT";
+
 function trackWhatsAppClick() {
   window.gtag?.("event", "clique_whatsapp", {
     event_category: "WhatsApp",
@@ -26,9 +21,6 @@ function trackWhatsAppClick() {
   window.gtag?.("event", "conversion", {
     send_to: "AW-620453322/yJl8CJOUwIkbEMq77acC",
   });
-  // Cast local: ao contrário de 'gtag', 'fbq' não aparece em nenhum dos
-  // componentes originais, então não há garantia de que já existe uma
-  // declaração de tipo global para ele neste projeto.
   (window as unknown as { fbq?: (...args: any[]) => void }).fbq?.(
     "track",
     "Contact"
@@ -49,9 +41,6 @@ export default function ContaBloqueada() {
     },
   ];
 
-  // Conjunto de perguntas aprovado. O item "Como confirmo que o escritório
-  // é real?" agora usa um link real (JSX), habilitado pela alteração em
-  // FAQ.tsx (answer: string | ReactNode).
   const faqItems = [
     {
       question: "A primeira conversa tem custo?",
@@ -96,9 +85,6 @@ export default function ContaBloqueada() {
     },
   ];
 
-  // As 4 hipóteses de bloqueio aprovadas — exclusivamente bancárias,
-  // sem nenhuma menção a bloqueio judicial, ordem judicial, penhora,
-  // SISBAJUD ou qualquer medida determinada pela Justiça.
   const blockReasons = [
     {
       title: "Atualização cadastral pendente",
@@ -118,8 +104,6 @@ export default function ContaBloqueada() {
     },
   ];
 
-  // As 3 etapas aprovadas (substituem as 4 anteriores) — passo 2 em
-  // primeira pessoa, consistente com a voz do restante da página.
   const steps = [
     {
       step: "1",
@@ -141,46 +125,34 @@ export default function ContaBloqueada() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       {/*
-        Header + Hero agrupados num wrapper próprio de min-h-screen.
-        Hero usa flex-1 (ver Hero.tsx) para preencher automaticamente o
-        espaço restante da primeira tela depois do Header — sem precisar
-        saber a altura exata dele.
+        SEM <Header /> propositalmente. Landing dedicada de Google Ads —
+        começa direto na microbarra do Hero, igual à prévia aprovada.
+        Não afeta outras páginas, já que Header não é importado aqui.
       */}
-      <div className="min-h-screen flex flex-col">
-        <Header />
+      <Hero
+        headline="Sua conta foi bloqueada ou seu dinheiro foi retido?"
+        subheadline="Um advogado pode ajudar você a entender o motivo do bloqueio e quais medidas podem ser avaliadas — sem custo para conversar."
+        microbar="Dr. Arthur Müller Coutinho · OAB/MT 10.889"
+        ctaPrimary={{
+          text: "Quero entender meu bloqueio",
+          onClick: () => {
+            trackWhatsAppClick();
+            window.open(WHATSAPP_URL, "_blank");
+          },
+        }}
+        ctaMicro={
+          <>
+            Sem custo para conversar &nbsp;•&nbsp; Sigilo profissional{" "}
+            &nbsp;•&nbsp;{" "}
+            <span className="text-emerald-400 font-semibold">
+              Resposta em até 1 hora útil
+            </span>
+          </>
+        }
+        whatsappFloatingMessage={WHATSAPP_MESSAGE}
+        onWhatsappFloatingClick={trackWhatsAppClick}
+      />
 
-        <Hero
-          headline="Sua conta foi bloqueada ou seu dinheiro foi retido?"
-          subheadline="Um advogado pode ajudar você a entender o motivo do bloqueio e quais medidas podem ser avaliadas — sem custo para conversar."
-          microbar="Dr. Arthur Müller Coutinho · OAB/MT 10.889"
-          ctaPrimary={{
-            text: "Quero entender meu bloqueio",
-            onClick: () => {
-              trackWhatsAppClick();
-              window.open(WHATSAPP_URL, "_blank");
-            },
-          }}
-          ctaMicro={
-            <>
-              Sem custo para conversar &nbsp;•&nbsp; Sigilo profissional{" "}
-              &nbsp;•&nbsp;{" "}
-              <span className="text-emerald-400 font-semibold">
-                Resposta em até 1 hora útil
-              </span>
-            </>
-          }
-          whatsappFloatingMessage={WHATSAPP_MESSAGE}
-          onWhatsappFloatingClick={trackWhatsAppClick}
-        />
-      </div>
-
-      {/*
-        Seção única "O que costuma acontecer" — substitui as três seções
-        anteriores ("Como Você Chegou Aqui?", "O Que Pode Acontecer?" e o
-        card verde de solução), que repetiam o mesmo conteúdo três vezes.
-        Mantive a paleta de cores já usada neste arquivo (red-50/red-900)
-        para não introduzir uma paleta nova fora da arquitetura existente.
-      */}
       <section className="w-full py-12 md:py-16 bg-slate-50">
         <div className="container max-w-3xl mx-auto px-4">
           <p className="text-xs font-bold uppercase tracking-wide text-red-700 mb-2">
@@ -208,7 +180,6 @@ export default function ContaBloqueada() {
             ))}
           </div>
 
-          {/* CTA intermediário — captura o pico emocional logo após a agitação */}
           <div className="mt-8 text-center">
             <p className="text-slate-600 mb-4">
               Nem sempre o banco explica qual desses motivos se aplica ao seu
@@ -256,11 +227,7 @@ export default function ContaBloqueada() {
         </div>
       </section>
 
-      {/*
-        Bloco do advogado — conteúdo novo, não existia nesta página antes.
-        Foto no mesmo caminho já usado na versão aprovada; troque pelo
-        arquivo real se o caminho no seu projeto for diferente.
-      */}
+      {/* Bloco do advogado — foto, nome, OAB e fala em primeira pessoa */}
       <section className="w-full py-12 md:py-16 bg-slate-50">
         <div className="container max-w-3xl mx-auto px-4">
           <div className="bg-slate-900 rounded-2xl p-6 md:p-8 text-white">
@@ -313,7 +280,54 @@ export default function ContaBloqueada() {
         urgencyText="Resposta em até 1 hora útil"
       />
 
-      <Footer />
+      {/*
+        Rodapé LOCAL desta landing — não usa o <Footer /> institucional
+        compartilhado (que tem colunas de "Áreas de Atuação" e "Mais Áreas",
+        inadequadas para uma landing de página única). Contém apenas o que
+        foi pedido: endereço, Como chegar, WhatsApp em texto, Política de
+        Privacidade, Termos de Uso e copyright.
+      */}
+      <footer className="w-full py-10 px-4 bg-slate-100 text-center text-sm text-slate-600">
+        <p className="font-bold text-slate-900">
+          AMC Advocacia — Arthur Müller Coutinho
+        </p>
+        <p className="mt-1">OAB/MT 10.889 · Cuiabá/MT</p>
+
+        <div className="mt-6 max-w-md mx-auto border-t border-slate-300 pt-6">
+          <p className="font-semibold text-slate-900">
+            Edifício Cuiabá Work Center
+          </p>
+          <p className="mt-1">
+            Av. Historiador Rubens de Mendonça, 1836 - Sala 803, Jardim
+            Aclimação - Cuiabá/MT
+          </p>
+
+          <a
+            href={MAPS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-4 mb-4 text-xs font-semibold text-slate-900 border border-slate-300 rounded-lg px-4 py-2 hover:bg-slate-200"
+          >
+            Como chegar
+          </a>
+
+          <p>WhatsApp: +55 65 9817-2713</p>
+
+          <p className="mt-4 text-xs">
+            <a href="/privacy" className="underline">
+              Política de Privacidade
+            </a>
+            {" · "}
+            <a href="/terms" className="underline">
+              Termos de Uso
+            </a>
+          </p>
+
+          <p className="mt-4 text-xs text-slate-500">
+            © 2026 AMC Advocacia. Arthur Müller Coutinho – OAB/MT 10.889.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
