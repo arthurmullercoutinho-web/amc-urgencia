@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Clock, MessageCircle } from "lucide-react";
+import type { ReactNode } from "react";
 
 interface HeroProps {
   headline: string;
@@ -25,6 +26,12 @@ interface HeroProps {
    * renderizado, comportamento igual ao de antes desta alteração.
    */
   microbar?: string;
+  /**
+   * Microcopy abaixo do CTA (ex: objeções de custo/sigilo/urgência).
+   * Opcional — se omitida, mantém os checkmarks institucionais originais
+   * para não alterar páginas que já usam este componente sem essa prop.
+   */
+  ctaMicro?: ReactNode;
   /**
    * Mensagem usada no botão flutuante de WhatsApp. Opcional — mantém a
    * mensagem original como padrão para não alterar páginas que já usam
@@ -52,6 +59,7 @@ export default function Hero({
   lawyerOAB,
   lawyerLocation,
   microbar,
+  ctaMicro,
   whatsappFloatingMessage = "Olá, Dr. Arthur. Preciso de uma análise do meu caso.",
   whatsappNumber = "556598172713",
   onWhatsappFloatingClick,
@@ -72,8 +80,8 @@ export default function Hero({
   return (
     <>
       {/* Hero Section - Premium Navy Blue + Gold */}
-      <section className="relative w-full min-h-screen md:min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 overflow-hidden flex items-center justify-center">
-        <div className="relative z-10 w-full max-w-3xl px-4 py-8 md:py-20 -mt-10 md:mt-0 text-center">
+      <section className="relative w-full flex-1 md:min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 overflow-hidden flex items-center justify-center">
+        <div className="relative z-10 w-full max-w-3xl px-4 py-8 md:py-20 text-center">
 
           {/* Microbarra discreta — opcional, uma linha só */}
           {microbar && (
@@ -144,12 +152,18 @@ export default function Hero({
             )}
           </div>
 
-          {/* Trust Elements */}
-          <div className="flex flex-col md:flex-row gap-2 md:gap-4 justify-center text-xs md:text-sm text-slate-300 text-center">
-            <span className="text-amber-300">✓ Atendimento presencial e online</span>
-            <span className="text-amber-300">✓ Cuiabá e região</span>
-            <span className="text-amber-300">✓ Atendimento direto com advogado</span>
-          </div>
+          {/* Trust Elements / CTA microcopy */}
+          {ctaMicro ? (
+            <p className="text-xs md:text-sm text-slate-300 text-center">
+              {ctaMicro}
+            </p>
+          ) : (
+            <div className="flex flex-col md:flex-row gap-2 md:gap-4 justify-center text-xs md:text-sm text-slate-300 text-center">
+              <span className="text-amber-300">✓ Atendimento presencial e online</span>
+              <span className="text-amber-300">✓ Cuiabá e região</span>
+              <span className="text-amber-300">✓ Atendimento direto com advogado</span>
+            </div>
+          )}
         </div>
 
         {/* Floating WhatsApp Button */}
