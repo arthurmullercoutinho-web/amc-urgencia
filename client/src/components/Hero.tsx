@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Clock, MessageCircle } from "lucide-react";
+import { ArrowRight, Clock } from "lucide-react";
 import type { ReactNode } from "react";
 
 interface HeroProps {
@@ -85,7 +85,7 @@ export default function Hero({
 
           {/* Microbarra discreta — opcional, uma linha só */}
           {microbar && (
-            <p className="text-[11px] md:text-xs text-slate-300 mb-2 md:mb-4">
+            <p className="text-[11px] md:text-xs text-slate-300 mb-4 md:mb-4">
               {microbar}
             </p>
           )}
@@ -101,12 +101,12 @@ export default function Hero({
           )}
 
           {/* Main Headline */}
-          <h1 className="text-4xl md:text-7xl font-bold text-white mb-3 md:mb-6 leading-tight">
+          <h1 className="text-4xl md:text-7xl font-bold text-white mb-5 md:mb-6 leading-tight">
             {headline}
           </h1>
 
           {/* Subheadline - Increased Legibility */}
-          <p className="text-base md:text-xl text-slate-200 mb-4 md:mb-8 leading-relaxed max-w-xl mx-auto font-medium">
+          <p className="text-base md:text-xl text-slate-200 mb-8 md:mb-8 leading-relaxed max-w-xl mx-auto font-medium">
             {subheadline}
           </p>
 
@@ -130,13 +130,20 @@ export default function Hero({
           )}
 
           {/* CTAs - WhatsApp Primary */}
-          <div className="flex flex-col md:flex-row gap-2 md:gap-4 justify-center items-center mb-4 md:mb-8">
+          <div className="flex flex-col md:flex-row gap-2 md:gap-4 justify-center items-center mb-6 md:mb-8">
             <Button
               onClick={ctaPrimary.onClick}
               size="lg"
-              className="bg-green-500 hover:bg-green-600 text-white font-bold px-6 md:px-8 py-3 md:py-5 text-sm md:text-lg rounded-lg shadow-2xl hover:shadow-3xl transition-all duration-300 group w-full md:w-auto flex items-center justify-center gap-2 md:gap-3 border-2 border-green-400 hover:scale-105"
+              className="bg-green-500 hover:bg-green-600 text-white font-bold px-6 md:px-8 py-3 md:py-5 text-sm md:text-lg rounded-lg shadow-2xl hover:shadow-3xl transition-all duration-300 group w-full md:w-auto flex items-center justify-center gap-[9px] md:gap-3 border-2 border-green-400 hover:scale-105"
             >
-              <MessageCircle className="w-5 h-5 md:w-6 md:h-6" />
+              <svg
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+                className="w-[21px] h-[21px] md:w-6 md:h-6 flex-shrink-0"
+              >
+                <path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.06-1.33A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm5.2 14.2c-.22.62-1.28 1.18-1.77 1.24-.45.06-1.02.08-1.65-.1-.38-.11-.87-.28-1.5-.55-2.64-1.14-4.36-3.8-4.5-3.98-.13-.18-1.08-1.44-1.08-2.75 0-1.3.68-1.94.92-2.2.24-.26.53-.32.7-.32h.5c.16 0 .38-.03.58.44.22.53.75 1.83.82 1.96.07.13.11.29.02.47-.09.18-.13.29-.26.44-.13.16-.28.35-.4.47-.13.13-.27.27-.12.53.16.26.7 1.16 1.51 1.88 1.04.93 1.91 1.22 2.17 1.36.26.13.41.11.56-.07.16-.18.66-.77.84-1.03.18-.26.35-.22.6-.13.24.09 1.55.73 1.82.87.26.13.44.2.5.31.07.13.07.71-.15 1.33z" />
+              </svg>
               <span>{ctaPrimary.text}</span>
             </Button>
 
@@ -175,7 +182,14 @@ export default function Hero({
           className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-2xl transition-all duration-300 hover:scale-110 flex items-center justify-center"
           aria-label="Fale conosco no WhatsApp"
         >
-          <MessageCircle className="w-6 h-6" />
+          <svg
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+            className="w-[28px] h-[28px]"
+          >
+            <path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.06-1.33A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z" />
+          </svg>
         </a>
       </section>
     </>
