@@ -1,5 +1,5 @@
 export const WHATSAPP_URL =
-  "https://wa.me/556598172713?text=Ol%C3%A1%20Dr.%20Arthur.%0A%0AEncontrei%20a%20p%C3%A1gina%20sobre%20conta%20bloqueada.%0A%0AGostaria%20de%20entender%20o%20que%20aconteceu%20com%20minha%20conta%20e%20quais%20medidas%20podem%20ser%20avaliadas%20para%20o%20meu%20caso.";
+  "https://wa.me/556598172713?text=Ol%C3%A1%2C%20Dr.%20Arthur.%20Vi%20sua%20p%C3%A1gina%20sobre%20conta%20bloqueada%20%E2%80%94%20minha%20conta%20foi%20bloqueada%20e%20eu%20queria%20entender%20o%20que%20pode%20ser%20feito.";
 
 export function trackWhatsAppClick(): void {
   if (typeof window !== "undefined" && typeof window.gtag === "function") {
