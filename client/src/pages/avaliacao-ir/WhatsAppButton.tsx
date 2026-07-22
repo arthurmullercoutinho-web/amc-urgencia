@@ -1,3 +1,4 @@
+import WhatsAppIcon from "./WhatsAppIcon";
 import { buildWhatsAppUrl } from "./data/whatsapp";
 
 interface WhatsAppButtonProps {
@@ -15,13 +16,19 @@ export default function WhatsAppButton({
   variant = "primary",
   className = "",
 }: WhatsAppButtonProps) {
-  const baseClasses =
-    "inline-flex min-h-11 items-center justify-center gap-2 rounded-md px-6 py-3 text-base font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
-
-  const variantClasses =
-    variant === "primary"
-      ? "bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm"
-      : "text-primary underline underline-offset-4 decoration-primary/40 hover:decoration-primary text-sm font-medium bg-transparent px-2 py-2";
+  if (variant === "discreet") {
+    return (
+      <a
+        href={buildWhatsAppUrl(message)}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={onWhatsAppClick}
+        className={`!inline-flex !min-h-11 items-center justify-center !px-2 !py-2 text-sm font-medium underline underline-offset-4 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${className}`}
+      >
+        {children}
+      </a>
+    );
+  }
 
   return (
     <a
@@ -29,9 +36,10 @@ export default function WhatsAppButton({
       target="_blank"
       rel="noopener noreferrer"
       onClick={onWhatsAppClick}
-      className={`${baseClasses} ${variantClasses} ${className}`}
+      className={`!inline-flex !min-h-[58px] w-full items-center justify-center gap-3 rounded-[13px] !bg-[#128038] !px-6 !py-4 text-base font-bold !text-white shadow-[0_6px_20px_rgba(18,128,56,0.35)] transition-colors hover:!bg-[#0f6b2f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-auto ${className}`}
     >
-      {children}
+      <WhatsAppIcon className="h-6 w-6 shrink-0 !text-white" />
+      <span>{children}</span>
     </a>
   );
 }

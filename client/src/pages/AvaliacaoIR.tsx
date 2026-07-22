@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
-import FAQ from "@/components/FAQ";
-import Footer from "@/components/Footer";
+import { Landmark, RotateCcw, FileSearch } from "lucide-react";
+import HeaderIR from "@/pages/avaliacao-ir/HeaderIR";
+import FooterIR from "@/pages/avaliacao-ir/FooterIR";
+import FAQIR from "@/pages/avaliacao-ir/FAQIR";
+import FloatingWhatsAppIR from "@/pages/avaliacao-ir/FloatingWhatsAppIR";
 import Triagem from "@/pages/avaliacao-ir/Triagem";
 import WhatsAppButton from "@/pages/avaliacao-ir/WhatsAppButton";
 import { WHATSAPP_MESSAGES } from "@/pages/avaliacao-ir/data/whatsapp";
@@ -12,10 +15,24 @@ const PAGE_DESCRIPTION =
 const PAGE_URL = "https://www.amcjuridico.com.br/avaliacao-ir";
 
 const COMO_FUNCIONA = [
-  "A legislação prevê a possibilidade de isenção do Imposto de Renda sobre determinados rendimentos de aposentadoria, pensão, reserva ou reforma quando presentes os requisitos legais.",
-  "A isenção alcança os rendimentos de aposentadoria, pensão, reserva ou reforma. Rendimentos de trabalho ou atividade profissional permanecem sujeitos às regras gerais de tributação.",
-  "A existência de valores a restituir depende da ocorrência de retenções anteriores e da análise do período aplicável ao caso.",
-  "A ausência de laudo pronto não deve levar a uma conclusão automática. Os documentos necessários dependem da análise individual.",
+  {
+    icon: Landmark,
+    titulo: "Rendimentos abrangidos",
+    texto:
+      "A legislação prevê a possibilidade de isenção do Imposto de Renda sobre determinados rendimentos de aposentadoria, pensão, reserva ou reforma quando presentes os requisitos legais. A isenção alcança os rendimentos de aposentadoria, pensão, reserva ou reforma. Rendimentos de trabalho ou atividade profissional permanecem sujeitos às regras gerais de tributação.",
+  },
+  {
+    icon: RotateCcw,
+    titulo: "Retenção e possível restituição",
+    texto:
+      "A existência de valores a restituir depende da ocorrência de retenções anteriores e da análise do período aplicável ao caso.",
+  },
+  {
+    icon: FileSearch,
+    titulo: "Documentos e análise individual",
+    texto:
+      "A ausência de laudo pronto não deve levar a uma conclusão automática. Os documentos necessários dependem da análise individual.",
+  },
 ];
 
 const FAQ_ITEMS = [
@@ -69,108 +86,121 @@ export default function AvaliacaoIR() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Área inicial */}
-      <section className="bg-primary px-4 py-14 md:py-20">
-        <div className="container mx-auto max-w-3xl text-center">
-          <h1 className="text-2xl font-bold leading-snug text-primary-foreground md:text-4xl md:leading-tight">
-            Aposentados, pensionistas e militares inativos com determinadas doenças
-            previstas em lei podem ter direito à isenção do Imposto de Renda
-          </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-base text-primary-foreground/85 md:text-lg">
-            Entenda os requisitos e verifique quais informações são necessárias para a
-            análise do caso.
-          </p>
+      <HeaderIR />
 
-          {!triagemIniciada && (
-            <div className="mt-8 flex flex-col items-center gap-4">
-              <button
-                type="button"
-                onClick={handleIniciarTriagem}
-                className="inline-flex min-h-11 w-full items-center justify-center rounded-md bg-accent px-8 py-4 text-lg font-bold text-primary shadow-sm transition-colors hover:bg-accent/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-auto"
-              >
-                Verificar os requisitos
-              </button>
+      {/* Hero */}
+      <section className="bg-gradient-to-b from-[#0E1729] to-[#16223B] !px-5 !py-14 md:!px-8 md:!py-20">
+        <div className="!mx-auto grid w-full max-w-[1150px] items-center gap-10 md:grid-cols-[1.4fr_1fr] md:gap-14">
+          <div className="order-2 text-center md:order-1 md:text-left">
+            <h1 className="text-[32px] font-bold leading-tight text-white sm:text-[36px] md:text-4xl md:leading-[1.15]">
+              Aposentados, pensionistas e militares inativos com determinadas doenças
+              previstas em lei podem ter direito à{" "}
+              <span className="text-[#7CD9A0]">isenção do Imposto de Renda</span>
+            </h1>
+            <p className="!mx-auto !mt-5 max-w-xl text-base text-[#B9C2D4] md:!mx-0 md:text-lg">
+              Entenda os requisitos e verifique quais informações são necessárias para a
+              análise do caso.
+            </p>
 
-              <WhatsAppButton
-                message={WHATSAPP_MESSAGES.hero}
-                onWhatsAppClick={tracking.fireContact}
-                variant="discreet"
-                className="text-primary-foreground/80 decoration-primary-foreground/40 hover:decoration-primary-foreground hover:text-primary-foreground"
-              >
-                Prefere falar diretamente? Fale pelo WhatsApp
-              </WhatsAppButton>
-            </div>
-          )}
+            {!triagemIniciada && (
+              <div className="!mt-8 flex flex-col items-center gap-4 md:items-start">
+                <button
+                  type="button"
+                  onClick={handleIniciarTriagem}
+                  className="!inline-flex min-h-[58px] w-full items-center justify-center rounded-[13px] !bg-[#128038] !px-8 !py-4 text-lg font-bold !text-white shadow-[0_6px_20px_rgba(18,128,56,0.4)] transition-colors hover:!bg-[#0f6b2f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-auto"
+                >
+                  Verificar os requisitos
+                </button>
+
+                <WhatsAppButton
+                  message={WHATSAPP_MESSAGES.hero}
+                  onWhatsAppClick={tracking.fireContact}
+                  variant="discreet"
+                  className="!text-[#B9C2D4] decoration-[#B9C2D4]/50 hover:!text-white hover:decoration-white focus-visible:outline-white"
+                >
+                  Prefere falar diretamente? Fale pelo WhatsApp
+                </WhatsAppButton>
+              </div>
+            )}
+          </div>
+
+          <div className="order-1 !mx-auto w-full max-w-[240px] md:order-2 md:!mx-0 md:max-w-[300px]">
+            <img
+              src="/foto-arthur-coutinho.jpg"
+              alt="Arthur Müller Coutinho, advogado responsável pelo atendimento"
+              className="aspect-[3/4] w-full rounded-2xl object-cover object-top shadow-xl"
+            />
+          </div>
         </div>
       </section>
 
       {/* Triagem */}
       {triagemIniciada && (
-        <section aria-label="Verificação inicial" className="bg-slate-50 px-4 py-10 md:py-14">
+        <section
+          aria-label="Verificação inicial"
+          className="bg-[#F6F5F1] !px-5 !py-12 md:!px-8 md:!py-16"
+        >
           <Triagem tracking={tracking} />
         </section>
       )}
 
-      {/* Conteúdo informativo */}
-      <section className="px-4 py-14 md:py-20">
-        <div className="container mx-auto max-w-3xl">
-          <h2 className="mb-6 text-2xl font-bold text-primary md:text-3xl">Como funciona</h2>
-          <div className="space-y-4">
-            {COMO_FUNCIONA.map((paragrafo, index) => (
-              <p key={index} className="text-base leading-relaxed text-foreground md:text-lg">
-                {paragrafo}
-              </p>
-            ))}
+      {/* Como funciona */}
+      <section className="bg-white !px-5 !py-16 md:!px-8 md:!py-20">
+        <div className="!mx-auto w-full max-w-[1150px]">
+          <h2 className="!mb-10 text-center text-2xl font-bold text-[#0E1729] md:text-3xl">
+            Como funciona
+          </h2>
+          <div className="grid gap-6 md:grid-cols-3">
+            {COMO_FUNCIONA.map((item) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={item.titulo}
+                  className="flex h-full flex-col rounded-2xl border border-[#E4E1D8] bg-white !p-7 shadow-sm"
+                >
+                  <div className="!mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#0E1729]/[0.07]">
+                    <Icon className="h-6 w-6 !text-[#0E1729]" strokeWidth={2} />
+                  </div>
+                  <h3 className="!mb-2 text-lg font-bold text-[#0E1729]">{item.titulo}</h3>
+                  <p className="text-sm leading-relaxed !text-[#5C6472]">{item.texto}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      <FAQ items={FAQ_ITEMS} title="Perguntas frequentes" />
+      {/* FAQ */}
+      <FAQIR items={FAQ_ITEMS} />
 
       {/* Sobre o advogado */}
-      <section className="bg-slate-50 px-4 py-14 md:py-20">
-        <div className="container mx-auto max-w-3xl">
-          <div className="flex flex-col items-center gap-6 text-center md:flex-row md:text-left">
-            <img
-              src="/foto-arthur-coutinho.jpg"
-              alt="Arthur Müller Coutinho, advogado responsável pelo atendimento"
-              className="h-40 w-40 shrink-0 rounded-full object-cover shadow-md"
-            />
-            <div>
-              <h2 className="text-2xl font-bold text-primary">Arthur Müller Coutinho</h2>
-              <p className="mt-1 text-base font-semibold text-accent">OAB/MT 10.889</p>
-              <div className="mt-4 flex flex-wrap justify-center gap-2 md:justify-start">
-                <span className="rounded-full border border-primary/20 bg-white px-3 py-1 text-sm text-primary">
-                  Atendimento direto
-                </span>
-                <span className="rounded-full border border-primary/20 bg-white px-3 py-1 text-sm text-primary">
-                  Presencial em Cuiabá
-                </span>
-                <span className="rounded-full border border-primary/20 bg-white px-3 py-1 text-sm text-primary">
-                  Online em todo o Brasil
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Aviso informativo */}
-      <section className="px-4 py-10">
-        <div className="container mx-auto max-w-3xl">
-          <p className="text-sm leading-relaxed text-muted-foreground">
-            Este conteúdo tem finalidade meramente informativa e não constitui garantia de
-            direito ou de resultado. A viabilidade de cada caso depende de avaliação
-            jurídica individual. Consulte também a nossa{" "}
-            <a href="/privacy" className="font-medium text-primary underline underline-offset-4">
-              Política de Privacidade
-            </a>
-            .
+      <section className="bg-white !px-5 !py-16 md:!px-8 md:!py-20">
+        <div className="!mx-auto w-full max-w-2xl rounded-3xl bg-[#0E1729] !p-8 text-center shadow-md md:!p-12">
+          <h2 className="text-2xl font-bold text-white">Arthur Müller Coutinho</h2>
+          <p className="!mt-1 text-base font-semibold text-[#B9C2D4]">OAB/MT 10.889</p>
+          <p className="!mx-auto !mt-5 max-w-md text-base leading-relaxed text-[#B9C2D4]">
+            Atendimento direto com o advogado responsável pelo caso, com atuação em Direito
+            Tributário e benefícios previdenciários.
           </p>
+          <ul className="!mt-6 flex flex-col items-center gap-2 text-sm text-[#B9C2D4] sm:flex-row sm:justify-center sm:gap-6">
+            <li className="flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#7CD9A0]" aria-hidden="true" />
+              Atendimento direto
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#7CD9A0]" aria-hidden="true" />
+              Presencial em Cuiabá
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#7CD9A0]" aria-hidden="true" />
+              Online em todo o Brasil
+            </li>
+          </ul>
         </div>
       </section>
 
-      <Footer />
+      <FooterIR />
+      <FloatingWhatsAppIR onWhatsAppClick={tracking.fireContact} />
     </div>
   );
 }
