@@ -86,24 +86,32 @@ export default function AvaliacaoIR() {
 
   return (
     <div className="min-h-screen bg-white">
-      <HeaderIR />
+      <div className="hidden md:block">
+        <HeaderIR />
+      </div>
 
       {/* Hero */}
-      <section className="bg-gradient-to-b from-[#0E1729] to-[#16223B] !px-6 !pt-7 !pb-16 md:!px-8 md:!pt-20 md:!pb-28">
+      <section className="bg-gradient-to-b from-[#0E1729] to-[#16223B] !px-6 !pt-5 !pb-16 md:!px-8 md:!pt-20 md:!pb-28">
+        {/* Cabeçalho compacto integrado ao hero, somente mobile */}
+        <div className="!mb-6 text-center text-xs !px-4 md:hidden">
+          <span className="text-[#DCE3F0]">Dr. Arthur Müller Coutinho</span>
+          <span className="text-[#DCE3F0]"> · </span>
+          <span className="font-bold text-white">OAB/MT 10.889</span>
+        </div>
+
         <div className="!mx-auto grid w-full max-w-[1150px] items-center gap-10 md:grid-cols-[1.4fr_1fr] md:gap-14">
-          <div className="text-center md:text-left">
-            <h1 className="text-[34px] font-bold leading-[1.15] text-white md:text-4xl">
-              Aposentados, pensionistas e militares inativos com determinadas doenças
-              previstas em lei podem ter direito à{" "}
+          <div className="text-left">
+            <h1 className="font-serif text-[35px] font-bold leading-[1.18] text-white md:font-sans md:text-4xl md:leading-[1.15]">
+              Aposentados, pensionistas e militares inativos podem ter direito à{" "}
               <span className="text-[#7CD9A0]">isenção do Imposto de Renda</span>
             </h1>
-            <p className="!mx-auto !mt-4 max-w-xl text-base text-[#B9C2D4] md:!mx-0 md:!mt-5 md:text-lg">
-              Entenda os requisitos e verifique quais informações são necessárias para a
-              análise do caso.
+            <p className="!mt-4 max-w-xl text-base text-[#B9C2D4] md:!mt-5 md:text-lg">
+              O benefício pode ser aplicado em casos de determinadas doenças previstas em
+              lei. Verifique os requisitos para uma análise inicial.
             </p>
 
             {!triagemIniciada && (
-              <div className="!mt-6 flex flex-col items-center gap-4 md:!mt-8 md:items-start">
+              <div className="!mt-6 flex flex-col items-start gap-4 md:!mt-8">
                 <button
                   type="button"
                   onClick={handleIniciarTriagem}
