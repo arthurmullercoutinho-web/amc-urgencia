@@ -89,21 +89,21 @@ export default function AvaliacaoIR() {
       <HeaderIR />
 
       {/* Hero */}
-      <section className="bg-gradient-to-b from-[#0E1729] to-[#16223B] !px-5 !py-14 md:!px-8 md:!py-20">
+      <section className="bg-gradient-to-b from-[#0E1729] to-[#16223B] !px-6 !pt-7 !pb-16 md:!px-8 md:!pt-20 md:!pb-28">
         <div className="!mx-auto grid w-full max-w-[1150px] items-center gap-10 md:grid-cols-[1.4fr_1fr] md:gap-14">
-          <div className="order-2 text-center md:order-1 md:text-left">
-            <h1 className="text-[32px] font-bold leading-tight text-white sm:text-[36px] md:text-4xl md:leading-[1.15]">
+          <div className="text-center md:text-left">
+            <h1 className="text-[34px] font-bold leading-[1.15] text-white md:text-4xl">
               Aposentados, pensionistas e militares inativos com determinadas doenças
               previstas em lei podem ter direito à{" "}
               <span className="text-[#7CD9A0]">isenção do Imposto de Renda</span>
             </h1>
-            <p className="!mx-auto !mt-5 max-w-xl text-base text-[#B9C2D4] md:!mx-0 md:text-lg">
+            <p className="!mx-auto !mt-4 max-w-xl text-base text-[#B9C2D4] md:!mx-0 md:!mt-5 md:text-lg">
               Entenda os requisitos e verifique quais informações são necessárias para a
               análise do caso.
             </p>
 
             {!triagemIniciada && (
-              <div className="!mt-8 flex flex-col items-center gap-4 md:items-start">
+              <div className="!mt-6 flex flex-col items-center gap-4 md:!mt-8 md:items-start">
                 <button
                   type="button"
                   onClick={handleIniciarTriagem}
@@ -124,7 +124,7 @@ export default function AvaliacaoIR() {
             )}
           </div>
 
-          <div className="order-1 !mx-auto w-full max-w-[240px] md:order-2 md:!mx-0 md:max-w-[300px]">
+          <div className="hidden w-full max-w-[300px] md:!mx-0 md:block">
             <img
               src="/foto-arthur-coutinho.jpg"
               alt="Arthur Müller Coutinho, advogado responsável pelo atendimento"
@@ -138,7 +138,7 @@ export default function AvaliacaoIR() {
       {triagemIniciada && (
         <section
           aria-label="Verificação inicial"
-          className="bg-[#F6F5F1] !px-5 !py-12 md:!px-8 md:!py-16"
+          className="bg-[#F6F5F1] !px-5 !pt-12 !pb-20 md:!px-8 md:!py-16"
         >
           <Triagem tracking={tracking} />
         </section>
@@ -176,8 +176,25 @@ export default function AvaliacaoIR() {
       {/* Sobre o advogado */}
       <section className="bg-white !px-5 !py-16 md:!px-8 md:!py-20">
         <div className="!mx-auto w-full max-w-2xl rounded-3xl bg-[#0E1729] !p-8 text-center shadow-md md:!p-12">
-          <h2 className="text-2xl font-bold text-white">Arthur Müller Coutinho</h2>
-          <p className="!mt-1 text-base font-semibold text-[#B9C2D4]">OAB/MT 10.889</p>
+          {/* Mobile: fotografia circular pequena ao lado do nome (única foto visível neste breakpoint) */}
+          <div className="flex items-center gap-4 text-left md:hidden">
+            <img
+              src="/foto-arthur-coutinho.jpg"
+              alt="Arthur Müller Coutinho, advogado responsável pelo atendimento"
+              className="h-20 w-20 shrink-0 rounded-full border-2 border-[#B08D2B] object-cover object-top"
+            />
+            <div>
+              <h2 className="text-lg font-bold text-white">Arthur Müller Coutinho</h2>
+              <p className="text-sm text-[#B9C2D4]">OAB/MT 10.889</p>
+              <p className="text-sm text-[#B9C2D4]">AMC Advocacia</p>
+            </div>
+          </div>
+
+          {/* Desktop: sem fotografia (já exibida no hero) */}
+          <div className="hidden md:block">
+            <h2 className="text-2xl font-bold text-white">Arthur Müller Coutinho</h2>
+            <p className="!mt-1 text-base font-semibold text-[#B9C2D4]">OAB/MT 10.889</p>
+          </div>
           <p className="!mx-auto !mt-5 max-w-md text-base leading-relaxed text-[#B9C2D4]">
             Atendimento direto com o advogado responsável pelo caso, com atuação em Direito
             Tributário e benefícios previdenciários.
