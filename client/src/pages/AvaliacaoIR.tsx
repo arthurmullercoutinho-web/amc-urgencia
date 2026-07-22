@@ -91,7 +91,7 @@ export default function AvaliacaoIR() {
       </div>
 
       {/* Hero */}
-      <section className="bg-gradient-to-b from-[#0E1729] to-[#16223B] !px-6 !pt-5 !pb-16 md:!px-8 md:!pt-20 md:!pb-28">
+      <section className="flex min-h-[100svh] flex-col bg-gradient-to-b from-[#0E1729] to-[#16223B] !px-6 !pt-5 !pb-16 md:block md:min-h-0 md:!px-8 md:!pt-20 md:!pb-28">
         {/* Cabeçalho compacto integrado ao hero, somente mobile */}
         <div className="!mb-6 text-center text-xs !px-4 md:hidden">
           <span className="text-[#DCE3F0]">Dr. Arthur Müller Coutinho</span>
@@ -140,6 +140,8 @@ export default function AvaliacaoIR() {
             />
           </div>
         </div>
+
+        <div className="flex-1 md:hidden" aria-hidden="true" />
       </section>
 
       {/* Triagem */}
