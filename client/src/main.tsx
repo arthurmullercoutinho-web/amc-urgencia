@@ -25,6 +25,7 @@ function Analytics() {
 
     window.gtag("js", new Date());
     window.gtag("config", "G-VRPWKC203K");
+    window.gtag("config", "AW-620453322");
   }, []);
 
   return null;
