@@ -12,6 +12,11 @@ export function trackWhatsAppClick(label: string): void {
       event_category: EVENT_CATEGORY,
       event_label: label,
     });
+    window.gtag("event", "conversion", {
+      send_to: "AW-620453322/BSrVCKGg7qEbEMq77acC",
+      value: 1.0,
+      currency: "BRL",
+    });
   }
   if (typeof window !== "undefined" && typeof window.fbq === "function") {
     window.fbq("track", "Contact");
