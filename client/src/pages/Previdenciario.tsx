@@ -13,9 +13,9 @@ import {
   Gavel,
 } from "lucide-react";
 import HeaderPrev from "@/pages/previdenciario/HeaderPrev";
+import "@/pages/previdenciario/previdenciario-hero.css";
 import FooterPrev from "@/pages/previdenciario/FooterPrev";
 import WhatsAppButton from "@/pages/previdenciario/WhatsAppButton";
-import WhatsAppIcon from "@/pages/previdenciario/WhatsAppIcon";
 import { WHATSAPP_MESSAGES } from "@/pages/previdenciario/data/whatsapp";
 import { usePrevidenciarioTracking } from "@/pages/previdenciario/data/tracking";
 
@@ -120,94 +120,82 @@ export default function Previdenciario() {
   }, []);
 
   return (
-    <div className="min-h-screen !bg-[#050F09]">
-      <div className="hidden md:block">
-        <HeaderPrev onWhatsAppClick={tracking.fireContact("header")} />
-      </div>
+    <div className="prev-page min-h-screen !bg-[#050F09]">
+      <HeaderPrev onWhatsAppClick={tracking.fireContact("header")} />
 
-      {/* Hero */}
-      <section className="relative overflow-hidden !bg-gradient-to-b !from-[#050F09] !to-[#081A10] !px-5 !pt-6 !pb-10 md:!px-8 md:!py-20">
-        {/* identificação compacta, somente mobile */}
-        <div className="!mb-5 flex items-center justify-center gap-2 text-center text-xs md:hidden">
-          <span className="!text-[#DCE7DF]">Dr. Arthur Müller Coutinho</span>
-          <span className="!text-[#DCE7DF]">·</span>
-          <span className="font-bold !text-white">OAB/MT 10.889</span>
-        </div>
-
-        <div className="!mx-auto grid w-full max-w-[1150px] items-center gap-10 md:grid-cols-[1.1fr_0.9fr] md:gap-14">
-          <div className="text-left">
-            <div className="!mb-4 hidden items-center gap-2 rounded-full border !border-[#C7A24B]/40 !bg-[#C7A24B]/10 !px-3 !py-1.5 text-xs font-semibold !text-[#C7A24B] md:inline-flex">
+      {/* Hero — transporte fiel do commit 74e264b (amcjuridico/previdenciario.html+css) */}
+      <section className="prev-hero">
+        <div className="prev-container">
+          <div className="prev-hero-content">
+            <div className="prev-trust-pill">
               <ShieldCheck className="h-3.5 w-3.5 shrink-0" />
               OAB/MT 10.889 · Atuação em benefícios do INSS
             </div>
-            <div className="!mb-3 text-xs font-bold uppercase tracking-widest !text-[#8CF5A4]">
-              Previdenciário em Cuiabá/MT
-            </div>
-            <h1 className="font-serif text-[32px] font-bold leading-[1.2] !text-[#F2F7F3] md:text-[46px] md:leading-[1.15]">
-              Auxílio-doença negado ou cortado pelo{" "}
-              <span className="italic !text-[#32E85B]">INSS?</span>
+            <div className="prev-kicker">Previdenciário em Cuiabá/MT</div>
+            <h1>
+              Auxílio-doença negado ou{" "}
+              cortado pelo <span>INSS?</span>
             </h1>
-            <p className="!mt-4 max-w-xl text-base leading-relaxed !text-[#B9CBC0] md:!mt-5 md:text-lg">
+            <p className="prev-lead">
               Não aceite uma negativa sem entender o motivo. Analisamos a decisão do INSS, a
               perícia e os seus documentos para orientar o caminho administrativo ou judicial
               mais adequado ao seu caso.
             </p>
 
-            <div className="!mt-6 flex flex-col items-start gap-4 sm:flex-row sm:items-center md:!mt-8">
+            <div className="prev-actions">
               <WhatsAppButton
                 message={WHATSAPP_MESSAGES.hero}
                 onWhatsAppClick={tracking.fireContact("hero")}
+                className="prev-btn prev-primary"
               >
                 Falar agora no WhatsApp
               </WhatsAppButton>
 
               <a
                 href="#situacoes"
-                className="!hidden !min-h-[58px] items-center justify-center rounded-[13px] border !border-[#8CF5A4]/30 !bg-transparent !px-6 !py-4 text-base font-semibold !text-[#F2F7F3] transition-colors hover:!bg-white/5 md:!inline-flex"
+                className="prev-btn prev-cta-desktop-only !hidden !min-h-[58px] items-center justify-center rounded-[13px] border !border-[#8CF5A4]/30 !bg-transparent !px-6 !py-4 text-base font-semibold !text-[#F2F7F3] transition-colors hover:!bg-white/5 md:!inline-flex"
               >
                 Entender atuação
               </a>
             </div>
 
-            <p className="!mt-4 text-center text-[13px] leading-snug !text-[#B9CBC0]/90 sm:text-left md:hidden">
+            <p className="prev-hero-microtexto">
               Atendimento reservado · Análise individual do caso
             </p>
           </div>
 
           {/* composição visual: somente desktop */}
-          <div className="relative hidden md:block">
-            <div className="!mx-auto w-full max-w-[300px] rounded-2xl border !border-[#8CF5A4]/15 !bg-gradient-to-b !from-[#122A1C] !to-[#0D2016] !p-6 shadow-[0_30px_80px_rgba(0,0,0,0.5)]">
-              <div className="!mb-4 flex items-center justify-between">
-                <div className="flex h-9 w-9 items-center justify-center rounded-[10px] !bg-[#C7A24B]/15 !text-[#C7A24B]">
+          <div className="prev-hero-visual">
+            <div className="prev-hv-painel">
+              <div className="prev-hv-topo">
+                <div className="prev-hv-selo">
                   <FileCheck2 className="h-[18px] w-[18px]" />
                 </div>
-                <span className="!inline-flex items-center gap-1.5 rounded-full !bg-[#ff6e5a]/15 !px-2.5 !py-1 text-[11px] font-extrabold !text-[#ffd9d0]">
-                  <span className="h-1.5 w-1.5 rounded-full !bg-[#ff6e5a]" />
+                <span className="prev-hv-status">
+                  <span className="prev-bolinha" />
                   Benefício negado
                 </span>
               </div>
-              <div className="!mb-2.5 h-[9px] w-[90%] rounded !bg-white/[0.07]" />
-              <div className="!mb-2.5 h-[9px] w-[70%] rounded !bg-white/[0.07]" />
-              <div className="h-[9px] w-1/2 rounded !bg-white/[0.07]" />
-              <div className="!mt-4 border-t !border-[#8CF5A4]/15 !pt-3.5 text-xs !text-[#B9CBC0]">
-                Carta de comunicação do INSS
-              </div>
+              <div className="prev-hv-linha w90" />
+              <div className="prev-hv-linha w70" />
+              <div className="prev-hv-linha w50" />
+              <div className="prev-hv-rodape">Carta de comunicação do INSS</div>
             </div>
 
-            <div className="absolute -left-6 top-3 flex items-center gap-2.5 rounded-[14px] border !border-[#8CF5A4]/15 !bg-[#0D2016] !px-3.5 !py-2.5 text-[12.5px] font-bold !text-[#F2F7F3] shadow-[0_20px_44px_rgba(0,0,0,0.4)]">
-              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg !bg-[#32E85B]/15 !text-[#8CF5A4]">
+            <div className="prev-hv-flutuante prev-hv-f1">
+              <span className="prev-ic">
                 <Stethoscope className="h-[15px] w-[15px]" />
               </span>
               Perícia
             </div>
-            <div className="absolute -left-3 bottom-12 flex -rotate-3 items-center gap-2.5 rounded-[14px] border !border-[#8CF5A4]/15 !bg-[#0D2016] !px-3.5 !py-2.5 text-[12.5px] font-bold !text-[#F2F7F3] shadow-[0_20px_44px_rgba(0,0,0,0.4)]">
-              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg !bg-[#32E85B]/15 !text-[#8CF5A4]">
+            <div className="prev-hv-flutuante prev-hv-f2">
+              <span className="prev-ic">
                 <ClipboardList className="h-[15px] w-[15px]" />
               </span>
               Laudos e exames
             </div>
-            <div className="absolute -right-1 -bottom-3 flex rotate-2 items-center gap-2.5 rounded-[14px] border !border-[#8CF5A4]/15 !bg-[#0D2016] !px-3.5 !py-2.5 text-[12.5px] font-bold !text-[#F2F7F3] shadow-[0_20px_44px_rgba(0,0,0,0.4)]">
-              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg !bg-[#32E85B]/15 !text-[#8CF5A4]">
+            <div className="prev-hv-flutuante prev-hv-f3">
+              <span className="prev-ic">
                 <Scale className="h-[15px] w-[15px]" />
               </span>
               Análise jurídica
