@@ -16,6 +16,7 @@ import ProblemasImobiliarios from "./pages/ProblemasImobiliarios";
 import ConflitosContratuais from "./pages/ConflitosContratuais";
 import NotificacaoExtrajudicial from "./pages/NotificacaoExtrajudicial";
 import AvaliacaoIR from "./pages/AvaliacaoIR";
+import Previdenciario from "./pages/Previdenciario";
 
 function Router() {
   return (
@@ -29,6 +30,7 @@ function Router() {
       <Route path={"/conflitos-contratuais"} component={ConflitosContratuais} />
       <Route path={"/notificacao-extrajudicial"} component={NotificacaoExtrajudicial} />
       <Route path={"/avaliacao-ir"} component={AvaliacaoIR} />
+      <Route path={"/previdenciario"} component={Previdenciario} />
       <Route path={"/privacy"} component={Privacy} />
       <Route path={"/terms"} component={Terms} />
       <Route path={"/404"} component={NotFound} />
