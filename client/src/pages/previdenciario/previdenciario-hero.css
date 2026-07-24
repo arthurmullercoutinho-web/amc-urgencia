@@ -1,0 +1,244 @@
+/* =========================================================================
+   previdenciario-hero.css
+   Transporte fiel do cabeçalho + primeira dobra aprovados no repositório
+   amcjuridico (commit 74e264b, previdenciario.html/previdenciario.css).
+   Todos os seletores são escopados sob .prev-page e este arquivo é
+   importado exclusivamente pela página /previdenciario. Não afeta
+   nenhuma outra rota do aplicativo.
+   ========================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700;800&display=swap');
+
+.prev-page {
+  --pv-bg: #050F09;
+  --pv-bg2: #081A10;
+  --pv-surface: #0D2016;
+  --pv-surface2: #12281B;
+  --pv-line: rgba(140, 245, 164, .14);
+  --pv-verde-fluor: #32E85B;
+  --pv-verde-claro: #8CF5A4;
+  --pv-verde-fechado2: #25603A;
+  --pv-dourado: #C7A24B;
+  --pv-dourado-suave: rgba(199, 162, 75, .14);
+  --pv-texto-claro: #F2F7F3;
+  --pv-texto-claro-muted: #B9CBC0;
+  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-family: var(--font-sans);
+}
+
+/* ---------- hero: primeira dobra ---------- */
+.prev-page .prev-hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(900px 460px at 86% 6%, rgba(50, 232, 91, .10), transparent 60%),
+    radial-gradient(700px 420px at 2% 98%, rgba(140, 245, 164, .06), transparent 60%),
+    linear-gradient(180deg, var(--pv-bg) 0%, var(--pv-bg2) 100%);
+  box-sizing: border-box;
+  min-height: calc(100svh - 78px);
+  height: auto;
+  display: flex;
+  align-items: center;
+  padding: 56px 0 64px;
+}
+
+.prev-page .prev-hero .prev-container {
+  width: min(1160px, calc(100% - 34px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.08fr .92fr;
+  align-items: center;
+  gap: 44px;
+}
+
+.prev-page .prev-hero-content { max-width: 600px; padding: 0 0 8px; }
+
+.prev-page .prev-trust-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(199, 162, 75, .4);
+  background: var(--pv-dourado-suave);
+  color: var(--pv-dourado);
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: .03em;
+  padding: 7px 14px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+}
+.prev-page .prev-trust-pill svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+.prev-page .prev-kicker {
+  color: var(--pv-verde-claro);
+  margin-bottom: 14px;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  font-family: var(--font-sans);
+}
+
+.prev-page .prev-hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 3.6vw, 48px);
+  line-height: 1.2;
+  font-weight: 700;
+  font-style: normal;
+  color: var(--pv-texto-claro);
+  max-width: 600px;
+  margin: 0;
+}
+.prev-page .prev-hero h1 span { color: var(--pv-verde-fluor); font-style: italic; }
+
+.prev-page .prev-lead {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--pv-texto-claro-muted);
+  margin: 20px 0 0;
+  max-width: 520px;
+}
+
+.prev-page .prev-actions {
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.prev-page .prev-hero-microtexto {
+  display: none;
+  font-family: var(--font-sans);
+  margin: 0;
+}
+
+/* ---------- composição visual da direita ---------- */
+.prev-page .prev-hero-visual {
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.prev-page .prev-hv-painel {
+  width: 100%;
+  max-width: 320px;
+  background: linear-gradient(180deg, var(--pv-surface2), var(--pv-surface));
+  border: 1px solid var(--pv-line);
+  border-radius: 20px;
+  padding: 24px 24px 26px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .5);
+  position: relative;
+  z-index: 2;
+}
+.prev-page .prev-hv-topo { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+.prev-page .prev-hv-selo {
+  width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+  background: rgba(199, 162, 75, .16);
+  border: 1px solid rgba(199, 162, 75, .4);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--pv-dourado);
+}
+.prev-page .prev-hv-selo svg { width: 18px; height: 18px; flex-shrink: 0; }
+.prev-page .prev-hv-status {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-sans);
+  font-size: 11px; font-weight: 800; letter-spacing: .03em;
+  color: #ffd9d0; background: rgba(255, 110, 90, .14);
+  border: 1px solid rgba(255, 110, 90, .35);
+  padding: 5px 10px; border-radius: 999px;
+}
+.prev-page .prev-hv-status .prev-bolinha { width: 6px; height: 6px; border-radius: 50%; background: #ff6e5a; flex-shrink: 0; }
+.prev-page .prev-hv-linha { height: 9px; border-radius: 5px; background: rgba(255, 255, 255, .07); margin-bottom: 10px; }
+.prev-page .prev-hv-linha.w90 { width: 90%; }
+.prev-page .prev-hv-linha.w70 { width: 70%; }
+.prev-page .prev-hv-linha.w50 { width: 50%; }
+.prev-page .prev-hv-rodape {
+  margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--pv-line);
+  font-family: var(--font-sans); font-size: 12px; color: var(--pv-texto-claro-muted);
+}
+.prev-page .prev-hv-flutuante {
+  position: absolute;
+  display: flex; align-items: center; gap: 10px;
+  background: linear-gradient(180deg, var(--pv-surface2), var(--pv-surface));
+  border: 1px solid var(--pv-line);
+  border-radius: 14px;
+  padding: 11px 15px;
+  font-family: var(--font-sans);
+  font-size: 12.5px; font-weight: 700; color: var(--pv-texto-claro);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, .4);
+  z-index: 3;
+}
+.prev-page .prev-hv-flutuante .prev-ic {
+  width: 28px; height: 28px; border-radius: 8px; flex-shrink: 0;
+  background: rgba(50, 232, 91, .14); color: var(--pv-verde-claro);
+  display: flex; align-items: center; justify-content: center;
+}
+.prev-page .prev-hv-flutuante .prev-ic svg { width: 15px; height: 15px; flex-shrink: 0; }
+.prev-page .prev-hv-f1 { top: 4%; left: -8%; }
+.prev-page .prev-hv-f2 { bottom: 14%; left: -4%; transform: rotate(-3deg); }
+.prev-page .prev-hv-f3 { bottom: -3%; right: 0; transform: rotate(2deg); }
+
+@media (max-width: 1180px) { .prev-page .prev-hv-f1 { left: -2%; } }
+
+@media (max-width: 1024px) {
+  .prev-page .prev-hero { padding: 40px 0 48px; }
+  .prev-page .prev-hero .prev-container { grid-template-columns: 1fr; }
+  .prev-page .prev-hero-visual { display: none; }
+}
+
+@media (max-width: 640px) {
+  .prev-page .prev-trust-pill { font-size: 11px; padding: 6px 12px; }
+  .prev-page .prev-hero h1 { font-size: clamp(27px, 7.6vw, 34px); line-height: 1.24; }
+  .prev-page .prev-lead { font-size: 16px; line-height: 1.6; margin-top: 16px; }
+  .prev-page .prev-actions { margin-top: 24px; gap: 12px; }
+  .prev-page .prev-actions .prev-btn { width: 100%; text-align: center; }
+}
+
+/* ---------- revisão mobile (≤767px), maior precedência ---------- */
+@media (max-width: 767px) {
+  .prev-page .prev-hero {
+    min-height: calc(100svh - 64px);
+    height: auto;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    padding: 22px 0 24px;
+  }
+  .prev-page .prev-hero .prev-container { padding: 0; }
+  .prev-page .prev-hero-content { padding: 0; }
+  .prev-page .prev-trust-pill { margin-bottom: 12px; }
+  .prev-page .prev-kicker { margin-bottom: 10px; }
+  .prev-page .prev-hero h1 { margin: 0; }
+  .prev-page .prev-lead { margin-top: 12px; }
+  .prev-page .prev-actions { margin-top: 18px; gap: 12px; }
+  .prev-page .prev-actions .prev-btn { min-height: 48px; }
+  .prev-page .prev-cta-desktop-only { display: none; }
+  .prev-page .prev-hero-microtexto {
+    display: block;
+    margin-top: 16px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--pv-texto-claro-muted);
+    text-align: center;
+  }
+}
+
+/* ---------- reforço final: garantias explícitas exigidas ---------- */
+@media (max-width: 767px) {
+  .prev-page .prev-cta-desktop-only { display: none !important; }
+  .prev-page .prev-hero-microtexto {
+    display: block !important;
+    margin: 12px 0 0 !important;
+    padding: 0 !important;
+    color: rgba(235, 255, 245, 0.82);
+    font-size: 13px;
+    line-height: 1.4;
+    text-align: center;
+  }
+  .prev-page .prev-actions { display: block; margin-bottom: 0; }
+  .prev-page .prev-actions .prev-primary { display: flex; width: 100%; }
+}
