@@ -1,4 +1,11 @@
 {
+  "redirects": [
+    {
+      "source": "/previdenciario.html",
+      "destination": "/previdenciario",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
