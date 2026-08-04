@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import {
   ShieldCheck,
   FileCheck2,
@@ -16,6 +16,8 @@ import HeaderPrev from "@/pages/previdenciario/HeaderPrev";
 import "@/pages/previdenciario/previdenciario-hero.css";
 import FooterPrev from "@/pages/previdenciario/FooterPrev";
 import WhatsAppButton from "@/pages/previdenciario/WhatsAppButton";
+import DiagnosticoPrev from "@/pages/previdenciario/DiagnosticoPrev";
+import StickyWhatsAppPrev from "@/pages/previdenciario/StickyWhatsAppPrev";
 import { WHATSAPP_MESSAGES } from "@/pages/previdenciario/data/whatsapp";
 import { usePrevidenciarioTracking } from "@/pages/previdenciario/data/tracking";
 
@@ -104,6 +106,8 @@ const VALORES = [
 
 export default function Previdenciario() {
   const tracking = usePrevidenciarioTracking();
+  const heroRef = useRef<HTMLElement>(null);
+  const diagnosticoRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     document.title = PAGE_TITLE;
@@ -124,7 +128,7 @@ export default function Previdenciario() {
       <HeaderPrev onWhatsAppClick={tracking.fireContact("header")} />
 
       {/* Hero — transporte fiel do commit 74e264b (amcjuridico/previdenciario.html+css) */}
-      <section className="prev-hero">
+      <section className="prev-hero" ref={heroRef}>
         <div className="prev-container">
           <div className="prev-hero-content">
             <div className="prev-trust-pill">
@@ -202,6 +206,16 @@ export default function Previdenciario() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Diagnóstico rápido — experimento CRO V1 */}
+      <section
+        id="diagnostico"
+        ref={diagnosticoRef}
+        aria-label="Diagnóstico rápido"
+        className="!bg-[#050F09] !px-5 !py-12 md:!px-8 md:!py-16"
+      >
+        <DiagnosticoPrev onWhatsAppClick={tracking.fireContact("diagnostico_concluido")} />
       </section>
 
       {/* Por que isso acontece */}
@@ -416,6 +430,14 @@ export default function Previdenciario() {
       </section>
 
       <FooterPrev />
+
+      <StickyWhatsAppPrev
+        heroRef={heroRef}
+        diagnosticoRef={diagnosticoRef}
+        onWhatsAppClick={tracking.fireContact("sticky_mobile")}
+      />
+      {/* reserva espaço para a barra sticky não cobrir o rodapé no mobile */}
+      <div className="h-[68px] md:hidden" aria-hidden="true" />
     </div>
   );
 }
