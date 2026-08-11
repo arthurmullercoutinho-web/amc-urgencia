@@ -109,6 +109,13 @@ export default function Previdenciario() {
   const heroRef = useRef<HTMLElement>(null);
   const diagnosticoRef = useRef<HTMLElement>(null);
 
+  // PrevWhatsAppDireto: para todo ponto de WhatsApp FORA do resultado do diagnóstico.
+  // Mantém o Contact/whatsapp_click antigo (via fireContact) intacto, só adiciona o novo evento.
+  const fireDireto = (label: string) => () => {
+    tracking.fireContact(label)();
+    tracking.fireWhatsAppDireto();
+  };
+
   useEffect(() => {
     document.title = PAGE_TITLE;
     const setMeta = (selector: string, content: string) => {
@@ -125,7 +132,7 @@ export default function Previdenciario() {
 
   return (
     <div className="prev-page min-h-screen !bg-[#050F09]">
-      <HeaderPrev onWhatsAppClick={tracking.fireContact("header")} />
+      <HeaderPrev onWhatsAppClick={fireDireto("header")} />
 
       {/* Hero — transporte fiel do commit 74e264b (amcjuridico/previdenciario.html+css) */}
       <section className="prev-hero" ref={heroRef}>
@@ -149,7 +156,7 @@ export default function Previdenciario() {
             <div className="prev-actions">
               <WhatsAppButton
                 message={WHATSAPP_MESSAGES.hero}
-                onWhatsAppClick={tracking.fireContact("hero")}
+                onWhatsAppClick={fireDireto("hero")}
                 className="prev-btn prev-primary"
               >
                 Falar agora no WhatsApp
@@ -326,7 +333,7 @@ export default function Previdenciario() {
                   </ul>
                   <WhatsAppButton
                     message={card.mensagem}
-                    onWhatsAppClick={tracking.fireContact(card.label)}
+                    onWhatsAppClick={fireDireto(card.label)}
                     variant="discreet"
                     className="!mt-auto !justify-start !text-[#2E7A45] decoration-[#2E7A45]/40 hover:!text-[#1B4D2C]"
                   >
@@ -391,7 +398,7 @@ export default function Previdenciario() {
             <div className="!mt-6">
               <WhatsAppButton
                 message={WHATSAPP_MESSAGES.hero}
-                onWhatsAppClick={tracking.fireContact("quem_somos")}
+                onWhatsAppClick={fireDireto("quem_somos")}
               >
                 Chamar no WhatsApp
               </WhatsAppButton>
@@ -412,7 +419,7 @@ export default function Previdenciario() {
           <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
             <WhatsAppButton
               message={WHATSAPP_MESSAGES.hero}
-              onWhatsAppClick={tracking.fireContact("localizacao")}
+              onWhatsAppClick={fireDireto("localizacao")}
             >
               WhatsApp
             </WhatsAppButton>
@@ -434,7 +441,7 @@ export default function Previdenciario() {
       <StickyWhatsAppPrev
         heroRef={heroRef}
         diagnosticoRef={diagnosticoRef}
-        onWhatsAppClick={tracking.fireContact("sticky_mobile")}
+        onWhatsAppClick={fireDireto("sticky_mobile")}
       />
       {/* reserva espaço para a barra sticky não cobrir o rodapé no mobile */}
       <div className="h-[68px] md:hidden" aria-hidden="true" />

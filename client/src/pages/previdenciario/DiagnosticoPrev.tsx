@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MessageCircle } from "lucide-react";
 import WhatsAppButton from "@/pages/previdenciario/WhatsAppButton";
 import {
@@ -8,6 +8,7 @@ import {
   type DiagnosticoSituacao,
   type DiagnosticoDocumento,
 } from "@/pages/previdenciario/data/whatsapp";
+import { usePrevidenciarioTracking } from "@/pages/previdenciario/data/tracking";
 
 type Etapa = "situacao" | "documento" | "resultado";
 
@@ -37,11 +38,21 @@ interface DiagnosticoPrevProps {
 }
 
 export default function DiagnosticoPrev({ onWhatsAppClick }: DiagnosticoPrevProps) {
+  const tracking = usePrevidenciarioTracking();
   const [etapa, setEtapa] = useState<Etapa>("situacao");
   const [situacao, setSituacao] = useState<DiagnosticoSituacao | null>(null);
   const [documento, setDocumento] = useState<DiagnosticoDocumento | null>(null);
 
+  // PrevTriagemConcluida: dispara ao CHEGAR na tela de resultado, não no clique do WhatsApp.
+  useEffect(() => {
+    if (etapa === "resultado") {
+      tracking.fireTriagemConcluida();
+    }
+  }, [etapa, tracking]);
+
   function escolherSituacao(valor: DiagnosticoSituacao) {
+    // PrevTriagemIniciada: dispara na resposta à primeira pergunta.
+    tracking.fireTriagemIniciada();
     setSituacao(valor);
     setEtapa("documento");
   }
@@ -116,7 +127,12 @@ export default function DiagnosticoPrev({ onWhatsAppClick }: DiagnosticoPrevProp
           </p>
           <WhatsAppButton
             message={buildDiagnosticoMessage(situacao, documento)}
-            onWhatsAppClick={onWhatsAppClick}
+            onWhatsAppClick={() => {
+              // PrevWhatsAppQualificado: exclusivo deste CTA (resultado do diagnóstico).
+              tracking.fireWhatsAppQualificado();
+              // Contact/whatsapp_click/conversão Google Ads antigos — mantidos intactos.
+              onWhatsAppClick();
+            }}
           >
             {DIAGNOSTICO_CTA[documento]}
           </WhatsAppButton>
