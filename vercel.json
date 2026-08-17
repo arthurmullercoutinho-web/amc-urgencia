@@ -8,6 +8,10 @@
   ],
   "rewrites": [
     {
+      "source": "/previdenciario",
+      "destination": "/previdenciario/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
