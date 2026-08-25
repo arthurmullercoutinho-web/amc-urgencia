@@ -13,7 +13,7 @@ export function trackWhatsAppClick(label: string): void {
       event_label: label,
     });
     window.gtag("event", "conversion", {
-      send_to: "AW-620453322/BSrVCKGg7qEbEMq77acC",
+      send_to: "AW-620453322/_uPpCIrura8cEMq77acC",
       value: 1.0,
       currency: "BRL",
     });
