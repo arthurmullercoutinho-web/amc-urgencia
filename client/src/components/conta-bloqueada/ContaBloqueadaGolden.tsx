@@ -14,7 +14,7 @@ import FloatingWhatsApp from "./components/FloatingWhatsApp";
 
 export default function ContaBloqueadaGolden() {
   return (
-    <>
+    <div className="golden-page">
       <MicroBar />
       <Hero />
       <Agitation />
@@ -26,6 +26,6 @@ export default function ContaBloqueadaGolden() {
       <CTAFinal />
       <Footer />
       <FloatingWhatsApp />
-    </>
+    </div>
   );
 }
