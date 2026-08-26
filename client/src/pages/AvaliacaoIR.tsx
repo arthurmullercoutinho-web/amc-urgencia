@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Landmark, RotateCcw, FileSearch } from "lucide-react";
+import HeaderIR from "@/pages/avaliacao-ir/HeaderIR";
 import FooterIR from "@/pages/avaliacao-ir/FooterIR";
 import FAQIR from "@/pages/avaliacao-ir/FAQIR";
 import FloatingWhatsAppIR from "@/pages/avaliacao-ir/FloatingWhatsAppIR";
@@ -12,13 +13,6 @@ const PAGE_TITLE = "Avaliação de Direito Tributário | AMC Advocacia";
 const PAGE_DESCRIPTION =
   "Informações sobre isenção de Imposto de Renda para aposentados, pensionistas e militares inativos. Entenda os requisitos legais com a AMC Advocacia.";
 const PAGE_URL = "https://www.amcjuridico.com.br/avaliacao-ir";
-
-const REGUA_ITEMS = [
-  { numero: "01", label: "IR retido" },
-  { numero: "02", label: "Rendimento" },
-  { numero: "03", label: "Diagnóstico" },
-  { numero: "04", label: "Documentos" },
-];
 
 const COMO_FUNCIONA = [
   {
@@ -93,87 +87,62 @@ export default function AvaliacaoIR() {
 
   return (
     <div className="min-h-screen bg-white">
+      <div className="hidden md:block">
+        <HeaderIR />
+      </div>
+
       {/* Hero */}
-      <section className="w-full bg-[#F7F5EF] !px-6 !pt-6 !pb-10 md:!px-8 md:!pt-10 md:!pb-14">
-        <div className="!mx-auto w-full max-w-[680px]">
-          {/* Topo: identificação institucional */}
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-bold tracking-wide text-[#0E1729] md:text-sm">
-              AMC ADVOCACIA
-            </span>
-            <span className="text-xs font-semibold text-[#0E1729] md:text-sm">
-              OAB/MT 10.889
-            </span>
-          </div>
-          <div className="!mt-3 h-px w-full bg-[#E4E1D8]" />
-          <p className="!mt-4 text-[11px] font-semibold uppercase tracking-[0.14em] text-[#0F5C46] md:text-xs">
-            Lei 7.713/88 · Art. 6º, XIV
-          </p>
+      <section className="flex min-h-[100svh] flex-col bg-gradient-to-b from-[#0E1729] to-[#16223B] !px-6 !pt-5 !pb-16 md:block md:min-h-0 md:!px-8 md:!pt-20 md:!pb-28">
+        {/* Cabeçalho compacto integrado ao hero, somente mobile */}
+        <div className="!mb-6 text-center text-xs !px-4 md:hidden">
+          <span className="text-[#DCE3F0]">Dr. Arthur Müller Coutinho</span>
+          <span className="text-[#DCE3F0]"> · </span>
+          <span className="font-bold text-white">OAB/MT 10.889</span>
+        </div>
 
-          {/* Headline */}
-          <h1 className="!mt-5 font-serif text-[32px] font-bold leading-[1.24] text-[#0E1729] sm:text-[36px] md:text-[44px] md:leading-[1.2]">
-            Aposentado ou pensionista? Pode ter direito à{" "}
-            <span className="text-[#0F5C46]">isenção de IR</span> por doença grave.
-          </h1>
+        <div className="!mx-auto grid w-full max-w-[1150px] items-center gap-10 md:grid-cols-[1.4fr_1fr] md:gap-14">
+          <div className="text-left">
+            <h1 className="font-serif text-[35px] font-bold leading-[1.18] text-white md:font-sans md:text-4xl md:leading-[1.15]">
+              Aposentados, pensionistas e militares inativos podem ter direito à{" "}
+              <span className="text-[#7CD9A0]">isenção do Imposto de Renda</span>
+            </h1>
+            <p className="!mt-4 max-w-xl text-base text-[#B9C2D4] md:!mt-5 md:text-lg">
+              O benefício pode ser aplicado em casos de determinadas doenças previstas em
+              lei. Verifique os requisitos para uma análise inicial.
+            </p>
 
-          {/* Régua 01–04 */}
-          <div className="!mt-7 grid grid-cols-4 border-y border-[#E4E1D8]">
-            {REGUA_ITEMS.map((item, index) => (
-              <div
-                key={item.numero}
-                className={`!py-3 !px-1 text-center md:text-left ${
-                  index < REGUA_ITEMS.length - 1 ? "border-r border-[#E4E1D8]" : ""
-                }`}
-              >
-                <span className="block text-xs font-bold text-[#0F5C46] md:text-sm">
-                  {item.numero}
-                </span>
-                <span className="!mt-0.5 block text-[10px] font-medium leading-tight text-[#5C6472] sm:text-xs">
-                  {item.label}
-                </span>
-              </div>
-            ))}
-          </div>
+            {!triagemIniciada && (
+              <div className="!mt-6 flex flex-col items-start gap-4 md:!mt-8">
+                <button
+                  type="button"
+                  onClick={handleIniciarTriagem}
+                  className="!inline-flex min-h-[58px] w-full items-center justify-center rounded-[13px] !bg-[#128038] !px-8 !py-4 text-lg font-bold !text-white shadow-[0_6px_20px_rgba(18,128,56,0.4)] transition-colors hover:!bg-[#0f6b2f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-auto"
+                >
+                  Verificar os requisitos
+                </button>
 
-          {/* Texto explicativo */}
-          <p className="!mt-6 text-sm leading-relaxed text-[#5C6472] md:text-base">
-            Responda quatro perguntas para uma avaliação inicial do seu caso. As
-            informações ajudam a identificar se há elementos para uma análise jurídica
-            individual.
-          </p>
-
-          {/* CTA */}
-          {!triagemIniciada && (
-            <div className="!mt-6">
-              <button
-                type="button"
-                onClick={handleIniciarTriagem}
-                className="!inline-flex min-h-[58px] w-full items-center justify-center rounded-[10px] !bg-[#0F5C46] !px-8 !py-4 text-base font-bold !text-white transition-colors hover:!bg-[#0C4B39] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E1729] md:text-lg"
-              >
-                Verificar meu caso
-              </button>
-              <p className="!mt-3 text-center text-xs font-medium text-[#5C6472]">
-                4 perguntas · menos de 1 minuto
-              </p>
-              <div className="!mt-3 flex justify-center">
                 <WhatsAppButton
                   message={WHATSAPP_MESSAGES.hero}
                   onWhatsAppClick={tracking.fireContact}
                   variant="discreet"
-                  className="!text-[#5C6472] decoration-[#5C6472]/50 hover:!text-[#0E1729] hover:decoration-[#0E1729] focus-visible:outline-[#0E1729]"
+                  className="!text-[#B9C2D4] decoration-[#B9C2D4]/50 hover:!text-white hover:decoration-white focus-visible:outline-white"
                 >
                   Prefiro falar diretamente pelo WhatsApp
                 </WhatsAppButton>
               </div>
-            </div>
-          )}
+            )}
+          </div>
 
-          {/* Identificação profissional inferior */}
-          <div className="!mt-8 h-px w-full bg-[#E4E1D8]" />
-          <p className="!mt-4 text-xs font-medium text-[#5C6472] md:text-sm">
-            Arthur Müller Coutinho · OAB/MT 10.889
-          </p>
+          <div className="hidden w-full max-w-[300px] md:!mx-0 md:block">
+            <img
+              src="/foto-arthur-coutinho.jpg"
+              alt="Arthur Müller Coutinho, advogado responsável pelo atendimento"
+              className="aspect-[3/4] w-full rounded-2xl object-cover object-top shadow-xl"
+            />
+          </div>
         </div>
+
+        <div className="flex-1 md:hidden" aria-hidden="true" />
       </section>
 
       {/* Triagem */}
