@@ -19,6 +19,8 @@ type Etapa2Valor =
 type Etapa3Valor = "sim" | "nao" | "duvida";
 type Etapa4Valor = "sim" | "alguns" | "nao" | "nao_sei";
 
+type ResultadoConclusao = "positiva" | "negativa";
+
 type Tela =
   | { tipo: "etapa1" }
   | { tipo: "etapa2" }
@@ -26,7 +28,7 @@ type Tela =
   | { tipo: "etapa4" }
   | { tipo: "orientacaoA" }
   | { tipo: "saida" }
-  | { tipo: "conclusao" };
+  | { tipo: "conclusao"; resultado: ResultadoConclusao };
 
 interface Respostas {
   etapa1?: Etapa1Valor;
@@ -77,7 +79,10 @@ export default function Triagem({ tracking }: TriagemProps) {
 
   useEffect(() => {
     if (telaAtual.tipo === "conclusao") {
-      tracking.fireLead();
+      tracking.fireTriagemConcluida();
+      if (telaAtual.resultado === "positiva") {
+        tracking.fireLead();
+      }
     }
   }, [telaAtual, tracking]);
 
@@ -95,6 +100,7 @@ export default function Triagem({ tracking }: TriagemProps) {
   }
 
   function handleEtapa1(valor: Etapa1Valor) {
+    tracking.fireTriagemIniciada();
     setRespostas((r) => ({ ...r, etapa1: valor }));
     avancar(valor === "nao" ? { tipo: "orientacaoA" } : { tipo: "etapa2" });
   }
@@ -111,7 +117,11 @@ export default function Triagem({ tracking }: TriagemProps) {
 
   function handleEtapa4(valor: Etapa4Valor) {
     setRespostas((r) => ({ ...r, etapa4: valor }));
-    avancar({ tipo: "conclusao" });
+    // Documentos não definem o resultado: o critério é exclusivamente o diagnóstico
+    // de doença grave (etapa3). "Tenho dúvida" é tratado como resultado cauteloso,
+    // junto com "não" — nunca afirma indício de enquadramento.
+    const resultado: ResultadoConclusao = respostas.etapa3 === "sim" ? "positiva" : "negativa";
+    avancar({ tipo: "conclusao", resultado });
   }
 
   const numeroEtapa =
@@ -210,12 +220,26 @@ export default function Triagem({ tracking }: TriagemProps) {
         />
       )}
 
-      {telaAtual.tipo === "conclusao" && (
+      {telaAtual.tipo === "conclusao" && telaAtual.resultado === "positiva" && (
         <TelaInformativa
           headingRef={headingRef}
-          titulo="Verificação concluída"
-          texto="Verificação inicial concluída. Para dar continuidade, fale diretamente com o escritório pelo WhatsApp. As informações deverão ser confirmadas durante o atendimento."
-          whatsappMensagem={WHATSAPP_MESSAGES.conclusao}
+          titulo="Seu caso apresenta indícios de possível enquadramento"
+          texto="Com base nas respostas informadas, pode existir possibilidade de isenção do Imposto de Renda por doença grave. Esta é uma avaliação preliminar e o direito depende da análise dos documentos, da doença e da origem dos rendimentos."
+          textoComplementar="Para confirmar as informações e receber uma orientação sobre os próximos passos, fale diretamente com a AMC Advocacia."
+          botaoLabel="Confirmar meu caso pelo WhatsApp"
+          whatsappMensagem={WHATSAPP_MESSAGES.conclusaoPositiva}
+          fireContact={tracking.fireContact}
+          onVoltar={voltar}
+        />
+      )}
+
+      {telaAtual.tipo === "conclusao" && telaAtual.resultado === "negativa" && (
+        <TelaInformativa
+          headingRef={headingRef}
+          titulo="Não identificamos um enquadramento evidente"
+          texto="Com base nas respostas informadas, não foi possível identificar de imediato uma hipótese de isenção. Como situações específicas podem exigir análise individual, você pode falar com a AMC Advocacia para esclarecer seu caso."
+          botaoLabel="Esclarecer meu caso pelo WhatsApp"
+          whatsappMensagem={WHATSAPP_MESSAGES.conclusaoNegativa}
           fireContact={tracking.fireContact}
           onVoltar={voltar}
         />
@@ -347,6 +371,8 @@ interface TelaInformativaProps {
   headingRef: React.RefObject<HTMLHeadingElement>;
   titulo: string;
   texto: string;
+  textoComplementar?: string;
+  botaoLabel?: string;
   whatsappMensagem: string;
   fireContact: () => void;
   onVoltar: () => void;
@@ -356,6 +382,8 @@ function TelaInformativa({
   headingRef,
   titulo,
   texto,
+  textoComplementar,
+  botaoLabel = "Falar no WhatsApp",
   whatsappMensagem,
   fireContact,
   onVoltar,
@@ -369,9 +397,15 @@ function TelaInformativa({
       >
         {titulo}
       </h2>
-      <p className="!mb-7 text-base leading-relaxed text-[#0E1729] md:text-lg">{texto}</p>
+      <p className="!mb-3 text-base leading-relaxed text-[#0E1729] md:text-lg">{texto}</p>
+      {textoComplementar && (
+        <p className="!mb-7 text-base leading-relaxed text-[#5C6472] md:text-lg">
+          {textoComplementar}
+        </p>
+      )}
+      {!textoComplementar && <div className="!mb-4" />}
       <WhatsAppButton message={whatsappMensagem} onWhatsAppClick={fireContact} variant="primary">
-        Falar no WhatsApp
+        {botaoLabel}
       </WhatsAppButton>
 
       <div className="!mt-6">

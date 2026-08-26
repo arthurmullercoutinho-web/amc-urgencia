@@ -24,6 +24,17 @@ export function trackLead(): void {
   }
 }
 
+export function trackTriagemConcluida(): void {
+  if (typeof window !== "undefined" && typeof window.gtag === "function") {
+    window.gtag("event", "triagem_ir_concluida", {
+      event_category: EVENT_CATEGORY,
+    });
+  }
+  if (typeof window !== "undefined" && typeof window.fbq === "function") {
+    window.fbq("trackCustom", "TriagemConcluida");
+  }
+}
+
 export function trackContact(): void {
   if (typeof window !== "undefined" && typeof window.gtag === "function") {
     window.gtag("event", "contact_whatsapp_ir", {
@@ -39,6 +50,7 @@ export function useAvaliacaoIRTracking() {
   const triagemIniciadaFired = useRef(false);
   const leadFired = useRef(false);
   const contactFired = useRef(false);
+  const triagemConcluidaFired = useRef(false);
 
   const fireTriagemIniciada = useCallback(() => {
     if (triagemIniciadaFired.current) return;
@@ -58,5 +70,11 @@ export function useAvaliacaoIRTracking() {
     trackContact();
   }, []);
 
-  return { fireTriagemIniciada, fireLead, fireContact };
+  const fireTriagemConcluida = useCallback(() => {
+    if (triagemConcluidaFired.current) return;
+    triagemConcluidaFired.current = true;
+    trackTriagemConcluida();
+  }, []);
+
+  return { fireTriagemIniciada, fireLead, fireContact, fireTriagemConcluida };
 }

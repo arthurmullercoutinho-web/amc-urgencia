@@ -7,5 +7,8 @@ export function buildWhatsAppUrl(message: string): string {
 export const WHATSAPP_MESSAGES = {
   hero: "Olá, conheci a AMC Advocacia pelo anúncio e gostaria de receber informações sobre isenção de Imposto de Renda.",
   saidaAntecipada: "Olá, iniciei uma verificação no site da AMC Advocacia e gostaria de conversar sobre meu caso.",
-  conclusao: "Olá, concluí a verificação inicial no site da AMC Advocacia e gostaria de receber orientações sobre a análise do meu caso.",
+  conclusaoPositiva:
+    "Olá, concluí a avaliação de isenção de Imposto de Renda no site da AMC Advocacia e gostaria de confirmar se meu caso pode se enquadrar.",
+  conclusaoNegativa:
+    "Olá, concluí a avaliação de isenção de Imposto de Renda no site da AMC Advocacia e gostaria de esclarecer meu caso.",
 } as const;
