@@ -134,23 +134,48 @@ export default function Previdenciario() {
     <div className="prev-page min-h-screen !bg-[#050F09]">
       <HeaderPrev onWhatsAppClick={fireDireto("header")} />
 
-      {/* Hero — transporte fiel do commit 74e264b (amcjuridico/previdenciario.html+css) */}
+      {/* Hero — redesenho com fotografia real integrada ao fundo (autorizado em rodada dedicada) */}
       <section className="prev-hero" ref={heroRef}>
         <div className="prev-container">
+          {/* fotografia — apenas mobile/tablet, posicionada em absoluto (não empurra o texto) */}
+          <div className="prev-hero-photo-abs">
+            <img
+              src="/foto-arthur-previdenciario-transparent.png"
+              alt="Arthur Müller Coutinho, advogado responsável pela AMC Advocacia"
+              className="prev-hero-photo-abs-img"
+              loading="eager"
+              fetchPriority="high"
+            />
+          </div>
+
           <div className="prev-hero-content">
-            <div className="prev-trust-pill">
-              <ShieldCheck className="h-3.5 w-3.5 shrink-0" />
-              OAB/MT 10.889 · Atuação em benefícios do INSS
+            <div className="prev-hero-text-narrow">
+              <div className="prev-hero-identity">
+                <span className="prev-hero-name">Arthur Müller Coutinho</span>
+                <span className="prev-hero-oab">OAB/MT 10.889</span>
+              </div>
+              <div className="prev-hero-rule" />
+              <div className="prev-kicker">Direito Previdenciário</div>
+              <h1>
+                Auxílio-doença
+                <br />
+                negado ou
+                <br />
+                cortado pelo
+                <br />
+                <span>INSS?</span>
+              </h1>
             </div>
-            <div className="prev-kicker">Previdenciário em Cuiabá/MT</div>
-            <h1>
-              Auxílio-doença negado ou{" "}
-              cortado pelo <span>INSS?</span>
-            </h1>
-            <p className="prev-lead">
-              Não aceite uma negativa sem entender o motivo. Analisamos a decisão do INSS, a
-              perícia e os seus documentos para orientar o caminho administrativo ou judicial
-              mais adequado ao seu caso.
+
+            <p className="prev-lead prev-lead-full">
+              Analisamos a negativa, a perícia e os documentos para orientar o caminho adequado ao
+              seu caso.
+            </p>
+            <p className="prev-hero-local">
+              <MapPin className="h-4 w-4 shrink-0" aria-hidden="true" />
+              <span className="prev-hero-local-text">
+                Atendimento em <span className="prev-hero-local-city">Cuiabá/MT</span> e online
+              </span>
             </p>
 
             <div className="prev-actions">
@@ -171,46 +196,20 @@ export default function Previdenciario() {
             </div>
 
             <p className="prev-hero-microtexto">
+              <ShieldCheck className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
               Atendimento reservado · Análise individual do caso
             </p>
           </div>
 
-          {/* composição visual: somente desktop */}
+          {/* fotografia — apenas desktop, coluna direita */}
           <div className="prev-hero-visual">
-            <div className="prev-hv-painel">
-              <div className="prev-hv-topo">
-                <div className="prev-hv-selo">
-                  <FileCheck2 className="h-[18px] w-[18px]" />
-                </div>
-                <span className="prev-hv-status">
-                  <span className="prev-bolinha" />
-                  Benefício negado
-                </span>
-              </div>
-              <div className="prev-hv-linha w90" />
-              <div className="prev-hv-linha w70" />
-              <div className="prev-hv-linha w50" />
-              <div className="prev-hv-rodape">Carta de comunicação do INSS</div>
-            </div>
-
-            <div className="prev-hv-flutuante prev-hv-f1">
-              <span className="prev-ic">
-                <Stethoscope className="h-[15px] w-[15px]" />
-              </span>
-              Perícia
-            </div>
-            <div className="prev-hv-flutuante prev-hv-f2">
-              <span className="prev-ic">
-                <ClipboardList className="h-[15px] w-[15px]" />
-              </span>
-              Laudos e exames
-            </div>
-            <div className="prev-hv-flutuante prev-hv-f3">
-              <span className="prev-ic">
-                <Scale className="h-[15px] w-[15px]" />
-              </span>
-              Análise jurídica
-            </div>
+            <img
+              src="/foto-arthur-previdenciario.png"
+              alt="Arthur Müller Coutinho, advogado responsável pela AMC Advocacia"
+              className="prev-hero-visual-img"
+              loading="eager"
+              fetchPriority="high"
+            />
           </div>
         </div>
       </section>
@@ -376,33 +375,28 @@ export default function Previdenciario() {
 
       {/* Quem é o advogado */}
       <section className="!bg-[#EEE9D9] !px-5 !py-14 md:!px-8 md:!py-20">
-        <div className="!mx-auto grid w-full max-w-[1150px] items-center gap-8 md:grid-cols-[0.8fr_1.2fr] md:gap-14">
-          <div className="!mx-auto w-full max-w-[280px] overflow-hidden rounded-3xl border !border-[#0E2417]/10 shadow-[0_24px_60px_rgba(14,36,23,0.16)]">
-            <img
-              src="/foto-arthur-coutinho.jpg"
-              alt="Arthur Müller Coutinho, advogado responsável pelo atendimento"
-              className="aspect-[4/5] w-full object-cover object-top"
-            />
+        <div className="!mx-auto w-full max-w-[680px] text-center">
+          <div className="!mb-2 text-xs font-bold uppercase tracking-widest !text-[#3B7A52]">
+            Quem é o advogado
           </div>
-          <div>
-            <div className="!mb-2 text-xs font-bold uppercase tracking-widest !text-[#3B7A52]">
-              Quem é o advogado
-            </div>
-            <h2 className="text-2xl font-bold !text-[#0E2417] md:text-3xl">
-              Atuação jurídica técnica, clara e responsável.
-            </h2>
-            <p className="!mt-4 max-w-xl text-base leading-relaxed !text-[#4A5C50]">
-              Arthur Müller Coutinho atua em Cuiabá/MT com comunicação direta, análise
-              individualizada e condução estratégica do caso concreto.
-            </p>
-            <div className="!mt-6">
-              <WhatsAppButton
-                message={WHATSAPP_MESSAGES.hero}
-                onWhatsAppClick={fireDireto("quem_somos")}
-              >
-                Chamar no WhatsApp
-              </WhatsAppButton>
-            </div>
+          <h2 className="text-2xl font-bold !text-[#0E2417] md:text-3xl">
+            Atuação jurídica técnica, clara e responsável.
+          </h2>
+          <p className="!mt-3 text-sm font-semibold !text-[#0E2417]">
+            Arthur Müller Coutinho
+            <span className="!ml-2 font-normal !text-[#4A5C50]">OAB/MT 10.889</span>
+          </p>
+          <p className="!mt-4 !mx-auto max-w-xl text-base leading-relaxed !text-[#4A5C50]">
+            Arthur Müller Coutinho atua em Cuiabá/MT com comunicação direta, análise
+            individualizada e condução estratégica do caso concreto.
+          </p>
+          <div className="!mt-6 flex justify-center">
+            <WhatsAppButton
+              message={WHATSAPP_MESSAGES.hero}
+              onWhatsAppClick={fireDireto("quem_somos")}
+            >
+              Chamar no WhatsApp
+            </WhatsAppButton>
           </div>
         </div>
       </section>
