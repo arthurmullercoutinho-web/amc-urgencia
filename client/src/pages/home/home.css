@@ -1,0 +1,76 @@
+/*
+  Estilos isolados da Home institucional. Escopados sob .amc-home para não
+  vazar para nenhuma outra rota (mesmo padrão já usado em
+  components/conta-bloqueada/landing.css).
+*/
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap");
+
+.amc-home {
+  --amc-navy-deep: #060b18;   /* fundo predominante, quase preto */
+  --amc-navy: #0f1a33;        /* variação um pouco mais clara, para bordas/painéis */
+  --amc-champagne: #d1b89b;   /* dourado/champanhe exato da logomarca AMC */
+  --amc-emerald: #0d3d2b;     /* verde-esmeralda escuro do botão institucional */
+  --amc-emerald-hover: #12503a;
+  --amc-title: #ffffff;
+  --amc-subtitle: #a0a0a0;
+  --amc-offwhite: #f6f4ee;    /* área de leitura, nunca branco puro */
+}
+
+.amc-home .amc-eyebrow {
+  letter-spacing: 0.14em;
+}
+
+.amc-home .amc-gold-rule {
+  width: 2.5rem;
+  height: 2px;
+  background-color: var(--amc-champagne);
+}
+
+.amc-home .amc-serif {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+}
+
+/* Cabeçalho: some ao rolar para baixo, reaparece ao rolar para cima */
+.amc-home .amc-header {
+  transition: transform 0.35s ease, background-color 0.35s ease;
+}
+.amc-home .amc-header[data-hidden="true"] {
+  transform: translateY(-100%);
+}
+
+/* Fade real da fotografia no próprio pixel da imagem (mask), não uma faixa
+   pintada por cima. Só os últimos ~12% desaparecem — nunca alcança
+   rosto/pescoço/ombros/parte principal do terno. Compatível com
+   Chrome/Edge (mask-image) e Safari (-webkit-mask-image). */
+.amc-home .amc-photo-fade-mask {
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 88%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 88%, transparent 100%);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+.amc-home .amc-fade-in {
+  animation: amc-fade-in 0.7s ease-out both;
+}
+
+@keyframes amc-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .amc-home .amc-fade-in {
+    animation: none;
+  }
+  .amc-home .amc-header {
+    transition: none;
+  }
+}

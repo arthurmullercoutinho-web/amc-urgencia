@@ -12,6 +12,10 @@
       "destination": "/previdenciario/index.html"
     },
     {
+      "source": "/avaliacao-ir",
+      "destination": "/avaliacao-ir/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

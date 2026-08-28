@@ -20,6 +20,7 @@ export default defineConfig({
       input: {
         main: path.resolve(__dirname, "client/index.html"),
         previdenciario: path.resolve(__dirname, "client/previdenciario/index.html"),
+        avaliacaoIr: path.resolve(__dirname, "client/avaliacao-ir/index.html"),
       },
     },
   },
