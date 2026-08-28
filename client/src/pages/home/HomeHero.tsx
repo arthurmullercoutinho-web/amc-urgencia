@@ -4,7 +4,7 @@ export default function HomeHero() {
   };
 
   return (
-    <section className="relative min-h-[100svh] bg-[#060b18] overflow-hidden">
+    <section className="relative min-h-[100svh] lg:min-h-[80vh] bg-[#060b18] overflow-hidden">
       {/* ===== Mobile: fotografia centralizada, texto direto sobre o navy ===== */}
       <div className="md:hidden flex min-h-[100svh] flex-col">
         {/* espaço reservado para a faixa/cabeçalho fixo */}
@@ -44,12 +44,12 @@ export default function HomeHero() {
       </div>
 
       {/* ===== Desktop: texto de um lado, fotografia do outro ===== */}
-      <div className="hidden md:grid md:grid-cols-2 min-h-[100svh]">
-        <div className="amc-fade-in relative z-10 px-14 lg:px-20 flex flex-col justify-center">
+      <div className="hidden md:grid md:grid-cols-2 min-h-[100svh] lg:min-h-[80vh] lg:grid-cols-[520px_480px] lg:justify-center lg:gap-[72px]">
+        <div className="amc-fade-in relative z-10 px-14 lg:px-0 flex flex-col justify-center">
           <p className="text-xs font-semibold uppercase tracking-wider text-[#d1b89b]">
             Arthur Müller Coutinho · OAB/MT 10.889
           </p>
-          <h1 className="amc-serif mt-4 text-5xl lg:text-6xl leading-[1.12] font-semibold text-white max-w-xl">
+          <h1 className="amc-serif mt-4 text-5xl lg:text-[62px] leading-[1.12] font-semibold text-white max-w-xl lg:max-w-none">
             Atuação jurídica técnica, estratégica e responsável.
           </h1>
           <p className="mt-6 text-lg text-[#a0a0a0] leading-relaxed">
@@ -65,9 +65,9 @@ export default function HomeHero() {
           </div>
         </div>
 
-        <div className="relative flex items-center justify-end pr-14 lg:pr-20">
+        <div className="relative flex items-center justify-end pr-14 lg:justify-start lg:pr-0">
           {/* fotografia — proporção preservada (sem cover/corte), menor e com espaço navy ao redor */}
-          <div className="w-[34vw] max-w-[500px] min-w-[280px]">
+          <div className="w-[34vw] max-w-[500px] min-w-[280px] lg:w-[480px] lg:max-w-[480px]">
             <img
               src="/foto-arthur-navy.png"
               alt="Arthur Müller Coutinho, advogado responsável pela AMC Advocacia"
