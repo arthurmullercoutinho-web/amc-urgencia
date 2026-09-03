@@ -58,7 +58,7 @@ export const DIAGNOSTICO_SITUACOES: Record<
       "Entendi. Mesmo sem a decisão em mãos agora, podemos conversar sobre o recurso e orientar quais informações serão necessárias para analisar o caso.",
   },
   outra: {
-    rotulo: "Outra situação",
+    rotulo: "Tenho outro problema com o INSS",
     fraseSituacao: "Tenho uma situação com o INSS diferente das opções listadas",
     respostaComDecisao:
       "Entendi. Como sua situação é um pouco diferente e você já tem algum documento ou decisão do INSS, podemos avaliar os detalhes e verificar qual caminho pode ser adotado.",

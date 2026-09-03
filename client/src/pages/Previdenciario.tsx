@@ -26,6 +26,11 @@ const PAGE_DESCRIPTION =
   "Auxílio-doença e benefício por incapacidade negado, cortado ou cessado pelo INSS. Atuação em Cuiabá/MT com Arthur Müller Coutinho, OAB/MT 10.889.";
 const PAGE_URL = "https://www.amcjuridico.com.br/previdenciario";
 
+// GIF transparente 1x1 — usado como <source> "vazio" no breakpoint oposto de cada
+// fotografia do Hero, para que o navegador nunca baixe a imagem que não será exibida.
+const EMPTY_IMG =
+  "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
+
 const PROBLEMAS = [
   { icon: FileWarning, texto: "Auxílio-doença negado" },
   { icon: RefreshCw, texto: "Benefício cessado" },
@@ -59,7 +64,7 @@ const PERCURSO = [
 const SITUACOES = [
   {
     icon: FileCheck2,
-    tag: "01 · AUXÍLIO-DOENÇA",
+    tag: "01 · AUXÍLIO-DOENÇA E PERÍCIA",
     titulo: "Benefício negado pelo INSS",
     texto: "Quando o pedido é indeferido logo na análise administrativa ou após a perícia.",
     bullets: ["Carta de indeferimento do INSS", "Resultado da perícia médica", "Documentação médica existente"],
@@ -137,15 +142,22 @@ export default function Previdenciario() {
       {/* Hero — redesenho com fotografia real integrada ao fundo (autorizado em rodada dedicada) */}
       <section className="prev-hero" ref={heroRef}>
         <div className="prev-container">
-          {/* fotografia — apenas mobile/tablet, posicionada em absoluto (não empurra o texto) */}
+          {/* fotografia — apenas mobile/tablet, posicionada em absoluto (não empurra o texto).
+              A foto real vive exclusivamente num <source>; o <img> de fallback é sempre o
+              pixel vazio, para que nenhum carregamento precoce baixe a foto errada em desktop. */}
           <div className="prev-hero-photo-abs">
-            <img
-              src="/foto-arthur-previdenciario-transparent.png"
-              alt="Arthur Müller Coutinho, advogado responsável pela AMC Advocacia"
-              className="prev-hero-photo-abs-img"
-              loading="eager"
-              fetchPriority="high"
-            />
+            <picture>
+              <source media="(max-width: 1024px)" srcSet="/foto-arthur-previdenciario-transparent.webp" />
+              <img
+                src={EMPTY_IMG}
+                alt="Arthur Müller Coutinho, advogado responsável pela AMC Advocacia"
+                className="prev-hero-photo-abs-img"
+                width={900}
+                height={1125}
+                loading="eager"
+                fetchPriority="high"
+              />
+            </picture>
           </div>
 
           <div className="prev-hero-content">
@@ -155,16 +167,11 @@ export default function Previdenciario() {
                 <span className="prev-hero-oab">OAB/MT 10.889</span>
               </div>
               <div className="prev-hero-rule" />
-              <div className="prev-kicker">Direito Previdenciário</div>
+              <div className="prev-kicker">Advogado Previdenciário em Cuiabá/MT</div>
               <h1>
-                Auxílio-doença
-                <br />
-                negado ou
-                <br />
-                cortado pelo
-                <br />
-                <span>INSS?</span>
+                Problema com seu benefício do <span>INSS?</span>
               </h1>
+              <p className="prev-hero-subline">Negativa, cessação ou perícia desfavorável</p>
             </div>
 
             <p className="prev-lead prev-lead-full">
@@ -201,15 +208,21 @@ export default function Previdenciario() {
             </p>
           </div>
 
-          {/* fotografia — apenas desktop, coluna direita */}
+          {/* fotografia — apenas desktop, coluna direita. Mesma técnica: a foto real só
+              existe como <source>, o fallback é sempre o pixel vazio. */}
           <div className="prev-hero-visual">
-            <img
-              src="/foto-arthur-previdenciario.png"
-              alt="Arthur Müller Coutinho, advogado responsável pela AMC Advocacia"
-              className="prev-hero-visual-img"
-              loading="eager"
-              fetchPriority="high"
-            />
+            <picture>
+              <source media="(min-width: 1025px)" srcSet="/foto-arthur-previdenciario.webp" />
+              <img
+                src={EMPTY_IMG}
+                alt="Arthur Müller Coutinho, advogado responsável pela AMC Advocacia"
+                className="prev-hero-visual-img"
+                width={900}
+                height={1125}
+                loading="eager"
+                fetchPriority="high"
+              />
+            </picture>
           </div>
         </div>
       </section>
